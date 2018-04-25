@@ -1,0 +1,79 @@
+@charset "utf-8";
+/*Content Table:
+------------------
+- Body
+	- Content
+  - Forms
+- FadeInOnLoad
+- MediaQueries
+- Links
+- Scrollbar
+- Selection
+
+Body
+------------------*/
+body{
+	width:100%;
+	min-height:100%;
+	color:#111;
+	background-color:#2E2A29;
+}
+/*Header
+------------------*/
+header img{max-height:120px}
+/*Content
+-------------*/
+
+/*FadeInOnLoad
+------------------*/
+@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@-moz-keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+main{
+	opacity:0;
+	-webkit-animation:fadeIn ease-in 1;
+	   -moz-animation:fadeIn ease-in 1;
+	        animation:fadeIn ease-in 1;
+	-webkit-animation-fill-mode:forwards;
+	   -moz-animation-fill-mode:forwards;
+	        animation-fill-mode:forwards;
+	-webkit-animation-duration:.5s;
+	   -moz-animation-duration:.5s;
+	        animation-duration:.5s;
+	-webkit-animation-delay:.4s;
+	   -moz-animation-delay:.4s;
+	        animation-delay:.4s;
+}
+/*MediaQueries
+------------------*/
+@media screen and (max-width:770px){
+
+}
+@media screen and (max-width:480px){
+
+}
+@media screen and (max-width:385px){
+
+}
+/*Links
+-------------*/
+a,a:visited{
+	color:#111;
+	text-decoration:none;
+	-webkit-transition:all .2s ease;
+	-moz-transition:all .2s ease;
+	-o-transition:all .2s ease;
+	transition:all .2s ease
+}
+a:active, a:hover{color:#555}
+/*Scrollbar
+-------------*/
+::-webkit-scrollbar{width:12px;height:12px;background-color:rgba(0,0,0,.05);border-radius:5em}
+::-webkit-scrollbar-corner{background-color:rgba(0,0,0,.05)}
+::-webkit-scrollbar-track{background-color:rgba(0,0,0,.05);border-radius:5em}
+::-webkit-scrollbar-thumb{background:#099;border-radius:5em}
+::-webkit-scrollbar:horizontal{height:12px}
+/*Selection
+-------------*/
+::selection{color:#fff;background-color:#099}
+::-moz-selection{color:#fff;background-color:#099}
