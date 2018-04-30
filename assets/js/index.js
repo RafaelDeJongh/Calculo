@@ -1,3 +1,4 @@
+Vue.use(VueScrollTo)
 new Vue({
 	el:'#webcalc',
 	data:{
@@ -5,3 +6,4 @@ new Vue({
 	}
 });
 new Vue({el:'#copyright'});
+new Vue({el:'#totop'});

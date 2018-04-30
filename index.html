@@ -113,9 +113,10 @@
 		<h2>Why exactly does a website has this price?</h2>
 	</section>
 </main>
-<button id="totop" v-if="isVisible" @click="backToTop"></button>
 <footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+<button id="totop" v-scroll-to="'body'"></button>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 <script src="assets/js/index.js"></script>
 </body>
 </html>
