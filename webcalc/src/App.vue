@@ -4,11 +4,11 @@
 		<img src="./assets/images/webcalc-logo.svg" alt="Web Calc Logo"/>
 	</header>
 	<main id="webcalc">
-		<aside>
-			<h2>Estimated Price:</h2>
+		<section id="calculator">
+		<aside id="priceCalculator">
+			<h3>Estimated Price:</h3>
 			<label>&euro;1000 to &euro;3000 excl. VAT</label>
 		</aside>
-		<section id="calculator">
 			<h1>The Easy Website Price Calculator</h1>
 			<form class="calcForm" action="#">
 				<!--Type of Site-->
@@ -23,14 +23,11 @@
 				<!--Design Choise-->
 				<label for="design">What kind of design? <a href="#" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 				<div class="selectbox">
-				<select id="design" name="design" v-model="designChoices">
+				<select id="design" name="design">
 					<option value="template">Template</option>
 					<option value="custom">Custom Design</option>
 				</select>
 				</div>
-				<transition name="fade">
-					<h2 v-if="designChoices == 'custom'">Show new labels</h2>
-				</transition>
 				<!--Amount of Pages-->
 				<label for="amountPages">How many pages do you require? <a href="#" tooltip-info="Info about how much pages you need or want."><i class="fas fa-info-circle"></i></a></label>
 				<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250"/>
@@ -69,7 +66,7 @@
 			<h2>Why exactly does a website has this price?</h2>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy;	{{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>
@@ -115,18 +112,31 @@ section h1,section h2{
 	color:#333;
 	background:#ececec;
 	border-radius:.5em;
-	min-height:50vh;
+	min-height:80vh;
 	width:50%;
 	margin:auto;
 }
-/*Fade*/
-.fade-enter-active,.fade-leave-active{transition:all .5s}
-.fade-enter,.fade-leave-to{opacity:0}
+/*Price Calculator
+-------------*/
+#priceCalculator{
+	position:fixed;
+	position:sticky;
+	top:40px;
+	background:#c2b49a;
+	width:20%;
+	border-radius:6px;
+	padding:1em 2em 2em;
+}
 /*Forms
 -------------*/
 form.calcForm{
 	width:50%;
 	margin:auto;
+	-webkit-touch-callout:none;
+	  -webkit-user-select:none;
+		 -moz-user-select:none;
+		  -ms-user-select:none;
+			  user-select:none;
 }
 .calcForm label{
 	display:block;
@@ -222,7 +232,7 @@ input[type="number"]::-webkit-inner-spin-button{
 	padding:0 2px
 }
 input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-webkit-inner-spin-button:active{opacity:.8}
-/*Checkboxes & Radio Buttons*/
+/*Checkboxes and Radio Buttons*/
 [type="checkbox"]:not(:checked),[type="checkbox"]:checked,[type="radio"]:not(:checked),[type="radio"]:checked{
 	position:absolute;
 	left:-9999px
@@ -365,6 +375,9 @@ footer{
 			transform:scale(1.1);
 }
 #totop:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiBmaWxsPSIjYzJiNDlhIj48cGF0aCBkPSJNNC40NjUgMzY2LjQ3NWw3LjA3IDcuMDcxYzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMEwyMjQgMTc4LjA1M2wxOTUuNDk0IDE5NS40OTNjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwbDcuMDctNy4wNzFjNC42ODYtNC42ODYgNC42ODYtMTIuMjg0IDAtMTYuOTdsLTIxMS4wNS0yMTEuMDUxYy00LjY4Ni00LjY4Ni0xMi4yODQtNC42ODYtMTYuOTcxIDBMNC40NjUgMzQ5LjUwNWMtNC42ODcgNC42ODYtNC42ODcgMTIuMjg0IDAgMTYuOTd6Ii8+PC9zdmc+)}
+/*Fade*/
+.fade-enter-active,.fade-leave-active{transition:all .5s}
+.fade-enter,.fade-leave-to{opacity:0}
 /*FadeInOnLoad
 ---------------*/
 /*@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}
