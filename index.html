@@ -114,7 +114,7 @@
 	</section>
 </main>
 <footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
-<button id="totop" v-scroll-to="'body'"></button>
+<button id="totop" v-scroll-to="'body'" v-if="!toTopVisible"></button>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 <script src="assets/js/index.js"></script>

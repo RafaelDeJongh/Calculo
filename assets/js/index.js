@@ -1,4 +1,4 @@
-Vue.use(VueScrollTo)
+Vue.use(VueScrollTo);
 new Vue({
 	el:'#webcalc',
 	data:{

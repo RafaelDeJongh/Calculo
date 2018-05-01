@@ -28,7 +28,7 @@ header{
 	box-shadow:0 2px 2px rgba(0,0,0,.2);
 	margin-bottom:2em
 }
-header img{max-height:120px}
+header img{max-height:120px;margin:auto}
 /*Content
 -------------*/
 main{
@@ -88,6 +88,7 @@ ul#features li{width:50%}
 	margin:0;
 	border-radius:6px;
 	-webkit-appearance:button;
+	   -moz-appearance:button;
 	cursor:pointer;
 }
 .selectbox::before,.selectbox::after{
@@ -127,6 +128,8 @@ input[type="number"]{
 	color:#fff;
 	border-radius:6px;
 	padding:.5em;
+	-webkit-appearance:button;
+	   -moz-appearance:button;
 }
 input[type="number"]::-webkit-outer-spin-button, 
 input[type="number"]::-webkit-inner-spin-button{
@@ -257,7 +260,6 @@ footer{
 /*ToTop
 ---------------*/
 #totop{
-	
 	color:#fff;
 	padding:6px 7px;
 	position:fixed;
