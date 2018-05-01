@@ -23,11 +23,14 @@
 				<!--Design Choise-->
 				<label for="design">What kind of design? <a href="#" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 				<div class="selectbox">
-				<select id="design" name="design">
+				<select id="design" name="design" v-model="designChoices">
 					<option value="template">Template</option>
 					<option value="custom">Custom Design</option>
 				</select>
 				</div>
+				<transition name="fade">
+					<h2 v-if="designChoices == 'custom'">Show new labels</h2>
+				</transition>
 				<!--Amount of Pages-->
 				<label for="amountPages">How many pages do you require? <a href="#" tooltip-info="Info about how much pages you need or want."><i class="fas fa-info-circle"></i></a></label>
 				<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250"/>
@@ -72,7 +75,13 @@
 </template>
 <script>
 import BackToTop from 'vue-backtotop'
-export default{name:'app',components:{BackToTop}}
+export default{
+	name:'app',
+	components:{BackToTop},
+	data(){
+		return{designChoices:"template"}
+	}
+}
 </script>
 <style>
 /*Content Table:

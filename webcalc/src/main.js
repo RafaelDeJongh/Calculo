@@ -5,6 +5,5 @@ Vue.config.productionTip = true
 new Vue({
 	el:'#app',
 	components:{App},
-	template:'<App/>',
-
+	template:'<App/>'
 });
