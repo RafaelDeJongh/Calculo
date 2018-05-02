@@ -66,27 +66,17 @@
 				<!--Features-->
 				<label for="features">Do you require any of the following features?  <a href="#" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features">
-					<li><input class="features" name="features" type="checkbox" id="seo" value="Search Engine Optimisation" v-model="form.features"><label for="seo">Search Engine Optimisation (SEO)</label></li>
-					<li><input class="features" name="features" type="checkbox" id="smo" value="Social Media Optimisation" v-model="form.features"><label for="smo">Social Media Optimisation (SMO)</label></li>
-					<li><input class="features" name="features" type="checkbox" id="security" value="Security Setup" v-model="form.features"><label for="security">Security Setup</label></li>
-					<li><input class="features" name="features" type="checkbox" id="caching" value="Caching &amp; Compression Setup" v-model="form.features"><label for="caching">Caching &amp; Compression Setup</label></li>
-					<li><input class="features" name="features" type="checkbox" id="cdn" value="Content Delivery Network (CDN) Setup" v-model="form.features"><label for="cdn">Content Delivery Network (CDN) Setup</label></li>
-					<li><input class="features" name="features" type="checkbox" id="server" value="Server/Webhost Setup" v-model="form.features"><label for="server">Server/Webhost Setup</label></li>
-					<li><input class="features" name="features" type="checkbox" id="mail" value="Mail Setup" v-model="form.features"><label for="mail">Mail Setup</label></li>
-					<li><input class="features" name="features" type="checkbox" id="gallery" value="Image/Sliders Gallery" v-model="form.features"><label for="gallery">Image/Sliders Gallery</label></li>
-					<li><input class="features" name="features" type="checkbox" id="pagebuilder" value="PageBuilder Support" v-model="form.features"><label for="pagebuilder">PageBuilder Support</label></li>
-					<li><input class="features" name="features" type="checkbox" id="contactform" value="Contact Form" v-model="form.features"><label for="contactform">Contact Form</label></li>
-					<li><input class="features" name="features" type="checkbox" id="multilingual" value="Multilingual support" v-model="form.features"><label for="multilingual">Multilingual support</label></li>
-					<li><input class="features" name="features" type="checkbox" id="backup" value="Backup (Offsite/Server side backup configuration)" v-model="form.features"><label for="backup">Backup (Offsite/Server side backup configuration)</label></li>
+					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.value" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
-				
-			</form>
+				</form>
 		</section>
 		<section id="siteresults">
 			<h2>Your currently configured site</h2>
 			<ul>
-				<li v-for="(item,f) in form">
-				<strong>{{f}}:</strong> {{item}}</li>
+				<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
+			</ul>
+			<ul>
+				<li v-for="(item,p) in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
 			</ul>
 		</section>
 		<section id="price">
@@ -115,9 +105,9 @@ export default{
 			},
 			options:{
 				sitetype:[
-					{value:"Standard",text:"Standard"},
-					{value:"E-Commerce",text:"E-Commerce"},
-					{value:"Custom Production",text:"Custom Production"}
+					{value:"Standard",text:"Standard",price:{low:800,high:1500}},
+					{value:"E-Commerce",text:"E-Commerce",price:{low:2000,high:4000}},
+					{value:"Custom Production",text:"Custom Production",price:{low:5000,high:8000}}
 				],
 				designChoices:[
 					{value:"Template",text:"Template"},
@@ -127,6 +117,20 @@ export default{
 					{value:"Less than 1 month",text:"Less than 1 month"},
 					{value:"Around 1 to 2 months",text:"Around 1 to 2 months"},
 					{value:"More than 2 months",text:"More than 2 months"}
+				],
+				features:[
+					{id:"seo",value:"Search Engine Optimisation",text:"Search Engine Optimisation (SEO)"},
+					{id:"smo",value:"Social Media Optimisation",text:"Social Media Optimisation (SMO)"},
+					{id:"security",value:"Security Setup",text:"Security Setup"},
+					{id:"caching",value:"Caching & Compression Setup",text:"Caching & Compression Setup"},
+					{id:"cdn",value:"Content Delivery Network Setup",text:"Content Delivery Network (CDN) Setup"},
+					{id:"server",value:"Server/Webhost Setup",text:"Server/Webhost Setup"},
+					{id:"mail",value:"Mail Setup",text:"Mail Setup"},
+					{id:"gallery",value:"Image/Sliders Gallery",text:"Image/Sliders Gallery"},
+					{id:"pagebuilder",value:"PageBuilder Support",text:"PageBuilder Support"},
+					{id:"contactform",value:"Contact Form",text:"Contact Form"},
+					{id:"multilingual",value:"Multilingual Support",text:"Multilingual Support"},
+					{id:"backup",value:"Backup (Offsite/Server side backup configuration)",text:"Backup (Offsite/Server side backup configuration)"}
 				]
 			}
 		}
