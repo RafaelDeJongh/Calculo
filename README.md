@@ -1,6 +1,5 @@
 # WebCalc
-Web Calculator is an easy to use website calculator to estimate the cost of a website.
 
-Github Version: https://rafaeldejongh.github.io/webcalc/webcalc/dist/
+A pre-build version of the original application without the use of Vue-CLI/WebPack.
 
-Live Version: https://webcalc.ga
+Live Version can be found: https://webcalc.ga
