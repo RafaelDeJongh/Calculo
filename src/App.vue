@@ -7,7 +7,7 @@
 		<section id="calculator">
 		<aside id="priceCalculator">
 			<h3>Estimated Price:</h3>
-			<label>{{calcMin}}&euro; to {{calcMax}}&euro; excl. VAT</label>
+			<label>&euro;{{calcMin}} to &euro;{{calcMax}} excl. VAT</label>
 		</aside>
 			<h1>The Easy Website Price Calculator</h1>
 			<form class="calcForm" action="#">
