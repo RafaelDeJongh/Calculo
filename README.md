@@ -2,9 +2,7 @@
 
 > WebCalc is here to inform you about website prices. With our handy Website Calculator, you will easily be able to figure out what a website might cost you!
 
-Github Version: https://rafaeldejongh.github.io/webcalc/dist/
-
-Live Version: https://webcalc.ga
+Visit the website at: https://webcalc.ga
 
 ## Build Setup
 
