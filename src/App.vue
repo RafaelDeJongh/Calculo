@@ -76,7 +76,10 @@
 				<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
 			</ul>
 			<ul>
-				<li v-for="(item,p) in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+				<li v-for="item in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+				<li v-for="item in options.designChoices">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+				<li v-for="item in options.speed">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+				<li v-for="item in options.features">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
 			</ul>
 		</section>
 		<section id="price">
@@ -110,28 +113,37 @@ export default{
 					{value:"Custom Production",text:"Custom Production",price:{low:5000,high:8000}}
 				],
 				designChoices:[
-					{value:"Template",text:"Template"},
-					{value:"Custom Design",text:"Custom Design"}
+					{value:"Template",text:"Template",price:{low:200,high:500}},
+					{value:"Custom Design",text:"Custom Design",price:{low:1200,high:2000}}
 				],
 				speed:[
-					{value:"Less than 1 month",text:"Less than 1 month"},
-					{value:"Around 1 to 2 months",text:"Around 1 to 2 months"},
-					{value:"More than 2 months",text:"More than 2 months"}
+					{value:"Less than 1 month",text:"Less than 1 month",price:{low:1000,high:3000}},
+					{value:"Around 1 to 2 months",text:"Around 1 to 2 months",price:{low:500,high:1000}},
+					{value:"More than 2 months",text:"More than 2 months",price:{low:250,high:500}}
 				],
 				features:[
-					{id:"seo",value:"Search Engine Optimisation",text:"Search Engine Optimisation (SEO)"},
-					{id:"smo",value:"Social Media Optimisation",text:"Social Media Optimisation (SMO)"},
-					{id:"security",value:"Security Setup",text:"Security Setup"},
-					{id:"caching",value:"Caching & Compression Setup",text:"Caching & Compression Setup"},
-					{id:"cdn",value:"Content Delivery Network Setup",text:"Content Delivery Network (CDN) Setup"},
-					{id:"server",value:"Server/Webhost Setup",text:"Server/Webhost Setup"},
-					{id:"mail",value:"Mail Setup",text:"Mail Setup"},
-					{id:"gallery",value:"Image/Sliders Gallery",text:"Image/Sliders Gallery"},
-					{id:"pagebuilder",value:"PageBuilder Support",text:"PageBuilder Support"},
-					{id:"contactform",value:"Contact Form",text:"Contact Form"},
-					{id:"multilingual",value:"Multilingual Support",text:"Multilingual Support"},
-					{id:"backup",value:"Backup (Offsite/Server side backup configuration)",text:"Backup (Offsite/Server side backup configuration)"}
+					{id:"seo",value:"Search Engine Optimisation",text:"Search Engine Optimisation (SEO)",price:{low:250,high:500}},
+					{id:"smo",value:"Social Media Optimisation",text:"Social Media Optimisation (SMO)",price:{low:400,high:800}},
+					{id:"security",value:"Security Setup",text:"Security Setup",price:{low:500,high:1000}},
+					{id:"caching",value:"Caching & Compression Setup",text:"Caching & Compression Setup",price:{low:700,high:1400}},
+					{id:"cdn",value:"Content Delivery Network Setup",text:"Content Delivery Network (CDN) Setup",price:{low:200,high:400}},
+					{id:"server",value:"Server/Webhost Setup",text:"Server/Webhost Setup",price:{low:350,high:700}},
+					{id:"mail",value:"Mail Setup",text:"Mail Setup",price:{low:150,high:300}},
+					{id:"gallery",value:"Image/Sliders Gallery",text:"Image/Sliders Gallery",price:{low:250,high:500}},
+					{id:"pagebuilder",value:"PageBuilder Support",text:"PageBuilder Support",price:{low:150,high:300}},
+					{id:"contactform",value:"Contact Form",text:"Contact Form",price:{low:150,high:300}},
+					{id:"multilingual",value:"Multilingual Support",text:"Multilingual Support",price:{low:500,high:1000}},
+					{id:"backup",value:"Backup (Offsite/Server side backup configuration)",text:"Backup (Offsite/Server side backup configuration)",price:{low:250,high:500}}
 				]
+			},
+			computed:{
+				form:{
+					get:function(){
+						return "";
+					},
+					set:function(){
+					}
+				}
 			}
 		}
 	}
