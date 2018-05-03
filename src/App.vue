@@ -7,7 +7,7 @@
 		<section id="calculator">
 		<aside id="priceCalculator">
 			<h3>Estimated Price:</h3>
-			<label>&euro;1000 to &euro;3000 excl. VAT</label>
+			<label>{{calcMin}}&euro; to {{calcMax}}&euro; excl. VAT</label>
 		</aside>
 			<h1>The Easy Website Price Calculator</h1>
 			<form class="calcForm" action="#">
@@ -104,11 +104,10 @@ export default{
 				pages:1,
 				copywriting:"",
 				features:[]
-				
 			},
 			options:{
 				sitetype:[
-					{value:"Standard",text:"Standard",price:{low:800,high:1500}},
+					{value:"Standard",text:"Standard",price:{low:800,dhigh:1500}},
 					{value:"E-Commerce",text:"E-Commerce",price:{low:2000,high:4000}},
 					{value:"Custom Production",text:"Custom Production",price:{low:5000,high:8000}}
 				],
@@ -135,16 +134,15 @@ export default{
 					{id:"multilingual",value:"Multilingual Support",text:"Multilingual Support",price:{low:500,high:1000}},
 					{id:"backup",value:"Backup (Offsite/Server side backup configuration)",text:"Backup (Offsite/Server side backup configuration)",price:{low:250,high:500}}
 				]
-			},
-			computed:{
-				form:{
-					get:function(){
-						return "";
-					},
-					set:function(){
-					}
-				}
 			}
+		}
+	},
+	computed:{
+		calcMin:function(){
+			return this.form.pages * 50
+		},
+		calcMax:function(){
+			return this.form.pages * 100
 		}
 	}
 }
