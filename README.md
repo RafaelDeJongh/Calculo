@@ -4,6 +4,8 @@
 
 Visit the website at: https://webcalc.ga
 
+Or the GitHub version: https://rafaeldejongh.github.io/webcalc/dist/
+
 ## Build Setup
 
 ``` bash
