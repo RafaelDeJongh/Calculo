@@ -127,22 +127,25 @@ export default{
 		}
 	},
 	computed:{
+	//Calculate Mimimum Price
 		calcMin(){
-			var seoLowVal = 0
-			if(typeof this.form.features[0] !== 'undefined'){
-				seoLowVal = this.options.features[0].price.low
-			}
-			var smoLowVal = 0
-			if(typeof this.form.features[1] !== 'undefined'){
-				smoLowVal = this.options.features[1].price.low
-			}
-			var securityLowVal = 0
-			if(typeof this.form.features[2] !== 'undefined'){
-				securityLowVal = this.options.features[2].price.low
-			}
-			return this.form.pages * 50 + seoLowVal + smoLowVal + securityLowVal
-			//return this.options.sitetype[0].price.low
+			var featuresPrice = 0,
+				priceIndex = 0,
+				copywriting = this.form.copywriting == "Yes" ? 2.5 : 1;
+			//Feature Loop
+			this.form.features.forEach(feature=>{
+				this.options.features.forEach(featureCheck=>{
+					if(feature == featureCheck.text){
+						featuresPrice += featureCheck.price.low
+						priceIndex++;
+					}
+				});
+			});
+			//Calculate all the values!
+			var minPrice = featuresPrice + ((this.form.pages * 50) * copywriting);
+			return minPrice;
 		},
+	//Calculate Maximum Price
 		calcMax(){
 			return this.form.pages * 100
 		}
