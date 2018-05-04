@@ -17,7 +17,7 @@
 					<label for="sitetype">What type of site do you want? <a href="#" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
-							<option v-for="option in options.sitetype" v-bind:value="option.value">{{option.text}}</option>
+							<option v-for="option in options.sitetype" v-bind:value="option.text">{{option.text}}</option>
 						</select>
 						
 					</div>
@@ -27,7 +27,7 @@
 					<label for="design">What kind of design? <a href="#" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="design" name="design" v-model="form.designChoices">
-						<option v-for="option in options.designChoices" v-bind:value="option.value">{{option.text}}</option>
+						<option v-for="option in options.designChoices" v-bind:value="option.text">{{option.text}}</option>
 					</select>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 					<label for="speed">How fast do you need it build?  <a href="#" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
-						<option v-for="option in options.speed" v-bind:value="option.value">{{option.text}}</option>
+						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
 					</select>
 					</div>
 				</div>
@@ -96,39 +96,51 @@ export default{
 			},
 			options:{
 				sitetype:[
-					{value:"Standard",text:"Standard",price:{low:800,high:1500}},
-					{value:"E-Commerce",text:"E-Commerce",price:{low:2000,high:4000}},
-					{value:"Custom Production",text:"Custom Production",price:{low:5000,high:8000}}
+					{text:"Standard",         price:{low:800, high:1500}},
+					{text:"E-Commerce",       price:{low:2000,high:4000}},
+					{text:"Custom Production",price:{low:5000,high:8000}}
 				],
 				designChoices:[
-					{value:"Template",text:"Template",price:{low:200,high:500}},
-					{value:"Custom Design",text:"Custom Design",price:{low:1200,high:2000}}
+					{text:"Template",     price:{low:200, high:500}},
+					{text:"Custom Design",price:{low:1200,high:2000}}
 				],
 				speed:[
-					{value:"Less than 1 month",text:"Less than 1 month",price:{low:1000,high:3000}},
-					{value:"Around 1 to 2 months",text:"Around 1 to 2 months",price:{low:500,high:1000}},
-					{value:"More than 2 months",text:"More than 2 months",price:{low:250,high:500}}
+					{text:"Less than 1 month",   price:{low:1000,high:3000}},
+					{text:"Around 1 to 2 months",price:{low:500, high:1000}},
+					{text:"More than 2 months",  price:{low:250, high:500}}
 				],
 				features:[
-					{id:"seo",value:"Search Engine Optimisation",text:"Search Engine Optimisation (SEO)",price:{low:250,high:500}},
-					{id:"smo",value:"Social Media Optimisation",text:"Social Media Optimisation (SMO)",price:{low:400,high:800}},
-					{id:"security",value:"Security Setup",text:"Security Setup",price:{low:500,high:1000}},
-					{id:"caching",value:"Caching & Compression Setup",text:"Caching & Compression Setup",price:{low:700,high:1400}},
-					{id:"cdn",value:"Content Delivery Network Setup",text:"Content Delivery Network (CDN) Setup",price:{low:200,high:400}},
-					{id:"server",value:"Server/Webhost Setup",text:"Server/Webhost Setup",price:{low:350,high:700}},
-					{id:"mail",value:"Mail Setup",text:"Mail Setup",price:{low:150,high:300}},
-					{id:"gallery",value:"Image/Sliders Gallery",text:"Image/Sliders Gallery",price:{low:250,high:500}},
-					{id:"pagebuilder",value:"PageBuilder Support",text:"PageBuilder Support",price:{low:150,high:300}},
-					{id:"contactform",value:"Contact Form",text:"Contact Form",price:{low:150,high:300}},
-					{id:"multilingual",value:"Multilingual Support",text:"Multilingual Support",price:{low:500,high:1000}},
-					{id:"backup",value:"Backup (Offsite/Server side backup configuration)",text:"Backup (Offsite/Server side backup configuration)",price:{low:250,high:500}}
+					{id:"seo",         price:{low:250,high:500}, text:"Search Engine Optimisation (SEO)"},
+					{id:"smo",         price:{low:400,high:800}, text:"Social Media Optimisation (SMO)"},
+					{id:"security",    price:{low:500,high:1000},text:"Security Setup"},
+					{id:"caching",     price:{low:700,high:1400},text:"Caching & Compression Setup"},
+					{id:"cdn",         price:{low:200,high:400}, text:"Content Delivery Network (CDN) Setup"},
+					{id:"server",      price:{low:350,high:700}, text:"Server/Webhost Setup"},
+					{id:"mail",        price:{low:150,high:300}, text:"Mail Setup"},
+					{id:"gallery",     price:{low:250,high:500}, text:"Image/Sliders Gallery"},
+					{id:"pagebuilder", price:{low:150,high:300}, text:"PageBuilder Support"},
+					{id:"contactform", price:{low:150,high:300}, text:"Contact Form"},
+					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Support"},
+					{id:"backup",      price:{low:250,high:500}, text:"Backup (Offsite/Server side backup configuration)"}
 				]
 			}
 		}
 	},
 	computed:{
 		calcMin(){
-			return this.form.pages * 50
+			var seoLowVal = 0
+			if(typeof this.form.features[0] !== 'undefined'){
+				seoLowVal = this.options.features[0].price.low
+			}
+			var smoLowVal = 0
+			if(typeof this.form.features[1] !== 'undefined'){
+				smoLowVal = this.options.features[1].price.low
+			}
+			var securityLowVal = 0
+			if(typeof this.form.features[2] !== 'undefined'){
+				securityLowVal = this.options.features[2].price.low
+			}
+			return this.form.pages * 50 + seoLowVal + smoLowVal + securityLowVal
 			//return this.options.sitetype[0].price.low
 		},
 		calcMax(){
