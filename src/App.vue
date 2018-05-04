@@ -51,10 +51,11 @@
 					<h2 v-if="form.designChoices == 'Custom Design'">Show new labels</h2>
 				</transition>
 				<!--Amount of Pages-->
+				
 			<div class="cl">
 				<div>
 					<label for="amountPages">How many pages do you require? <a href="#" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
-					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
+					<vue-slider id="amountPages" name="amountPages" ref="pageSlider" v-model="pageSlider.value" v-bind="pageSlider.options"></vue-slider>
 				</div>
 				<!--CopyWriting-->
 				<div>
@@ -69,18 +70,19 @@
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.value" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
 				</form>
-		</section>
-		<section id="siteresults">
-			<h2>Your currently configured site</h2>
-			<ul>
-				<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
-			</ul>
-			<ul>
-				<li v-for="item in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-				<li v-for="item in options.designChoices">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-				<li v-for="item in options.speed">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-				<li v-for="item in options.features">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-			</ul>
+			<section id="siteresults">
+				<h2>Your currently configured site</h2>
+				<ul>
+					<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
+					<li><strong>Pages:</strong> {{pageSlider.value}}</li>
+				</ul>
+				<!--<ul>
+					<li v-for="item in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+					<li v-for="item in options.designChoices">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+					<li v-for="item in options.speed">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+					<li v-for="item in options.features">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
+				</ul>-->
+			</section>
 		</section>
 		<section id="price">
 			<h2>Why exactly does a website has this price?</h2>
@@ -91,23 +93,35 @@
 </div>
 </template>
 <script>
-import BackToTop from 'vue-backtotop'
+import BackToTop from 'vue-backtotop';
+import vueSlider from 'vue-slider-component';
 export default{
 	name:'app',
-	components:{BackToTop},
+	components:{BackToTop,vueSlider},
 	data(){
 		return{
 			form:{
 				sitetype:"Standard",
 				designChoices:"Template",
 				speed:"Less than 1 month",
-				pages:1,
 				copywriting:"",
 				features:[]
 			},
+			pageSlider:{
+				value:1,
+				options:{
+					min:0,
+					max:100,
+					interval:10,
+					piecewise:true,
+					lazy:true,
+					class:"pageSlider",
+					width:"100%",
+				}
+			},
 			options:{
 				sitetype:[
-					{value:"Standard",text:"Standard",price:{low:800,dhigh:1500}},
+					{value:"Standard",text:"Standard",price:{low:800,high:1500}},
 					{value:"E-Commerce",text:"E-Commerce",price:{low:2000,high:4000}},
 					{value:"Custom Production",text:"Custom Production",price:{low:5000,high:8000}}
 				],
@@ -138,11 +152,17 @@ export default{
 		}
 	},
 	computed:{
-		calcMin:function(){
-			return this.form.pages * 50
+		calcMin(){
+			return this.pageSlider.value * 50
+			//return this.options.sitetype[0].price.low
 		},
-		calcMax:function(){
-			return this.form.pages * 100
+		calcMax(){
+			return this.pageSlider.value * 100
+		}
+	},
+	methods:{
+		calculation(e){
+			
 		}
 	}
 }
