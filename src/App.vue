@@ -80,7 +80,6 @@
 </template>
 <script>
 import BackToTop from 'vue-backtotop';
-import vueSlider from 'vue-slider-component';
 export default{
 	name:'app',
 	components:{BackToTop},
@@ -129,18 +128,18 @@ export default{
 	computed:{
 	//Calculate Mimimum Price
 		calcMin(){
-			var featuresPrice = 0,
-				priceIndex = 0,
-				copywriting = this.form.copywriting == "Yes" ? 2.5 : 1;
-			//Feature Loop
-			this.form.features.forEach(feature=>{
-				this.options.features.forEach(featureCheck=>{
-					if(feature == featureCheck.text){
-						featuresPrice += featureCheck.price.low
-						priceIndex++;
-					}
+			var copywriting = this.form.copywriting == "Yes" ? 2.5 : 1;
+			var featuresPrice = this.form.features.reduce((state, feature, index, array) =>{
+				var optionFeatures = this.options.features.filter(featureCheck => featureCheck.text == feature);
+				optionFeatures.forEach(check => {
+					state += check.price.low
 				});
-			});
+				var speedFeatures = this.options.speed.filter(speedCheck => speedCheck.text == feature);
+				speedFeatures.forEach(speed => {
+					state += check.speed.low
+				});
+			return state;
+			},0);
 			//Calculate all the values!
 			var minPrice = featuresPrice + ((this.form.pages * 50) * copywriting);
 			return minPrice;
