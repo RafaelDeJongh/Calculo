@@ -33,7 +33,7 @@
 				</div>
 				<!--Development Speed-->
 				<div>
-					<label for="speed">How fast do you need it build?  <a href="#" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
+					<label for="speed">How fast do you need it build? <a href="#" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
 						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
@@ -60,7 +60,7 @@
 				<!--Features-->
 				<label for="features">Do you require any of the following features?  <a href="#" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features">
-					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.value" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
+					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
 				</form>
 			<section id="siteresults">
