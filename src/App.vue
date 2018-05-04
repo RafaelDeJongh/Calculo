@@ -17,9 +17,7 @@
 					<label for="sitetype">What type of site do you want? <a href="#" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
-							<option v-for="option in options.sitetype" v-bind:value="option.value">
-								{{option.text}}
-							</option>
+							<option v-for="option in options.sitetype" v-bind:value="option.value">{{option.text}}</option>
 						</select>
 						
 					</div>
@@ -29,9 +27,7 @@
 					<label for="design">What kind of design? <a href="#" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="design" name="design" v-model="form.designChoices">
-						<option v-for="option in options.designChoices" v-bind:value="option.value">
-							{{option.text}}
-						</option>
+						<option v-for="option in options.designChoices" v-bind:value="option.value">{{option.text}}</option>
 					</select>
 					</div>
 				</div>
@@ -40,9 +36,7 @@
 					<label for="speed">How fast do you need it build?  <a href="#" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
-						<option v-for="option in options.speed" v-bind:value="option.value">
-							{{option.text}}
-						</option>
+						<option v-for="option in options.speed" v-bind:value="option.value">{{option.text}}</option>
 					</select>
 					</div>
 				</div>
@@ -51,11 +45,10 @@
 					<h2 v-if="form.designChoices == 'Custom Design'">Show new labels</h2>
 				</transition>
 				<!--Amount of Pages-->
-				
 			<div class="cl">
 				<div>
 					<label for="amountPages">How many pages do you require? <a href="#" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
-					<vue-slider id="amountPages" name="amountPages" ref="pageSlider" v-model="pageSlider.value" v-bind="pageSlider.options"></vue-slider>
+					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
 				</div>
 				<!--CopyWriting-->
 				<div>
@@ -74,14 +67,7 @@
 				<h2>Your currently configured site</h2>
 				<ul>
 					<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
-					<li><strong>Pages:</strong> {{pageSlider.value}}</li>
 				</ul>
-				<!--<ul>
-					<li v-for="item in options.sitetype">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-					<li v-for="item in options.designChoices">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-					<li v-for="item in options.speed">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-					<li v-for="item in options.features">Estimated Price: {{item.price.low}} &ndash; {{item.price.high}}</li>
-				</ul>-->
 			</section>
 		</section>
 		<section id="price">
@@ -97,27 +83,16 @@ import BackToTop from 'vue-backtotop';
 import vueSlider from 'vue-slider-component';
 export default{
 	name:'app',
-	components:{BackToTop,vueSlider},
+	components:{BackToTop},
 	data(){
 		return{
 			form:{
 				sitetype:"Standard",
 				designChoices:"Template",
 				speed:"Less than 1 month",
+				pages:1,
 				copywriting:"",
 				features:[]
-			},
-			pageSlider:{
-				value:1,
-				options:{
-					min:0,
-					max:100,
-					interval:10,
-					piecewise:true,
-					lazy:true,
-					class:"pageSlider",
-					width:"100%",
-				}
 			},
 			options:{
 				sitetype:[
@@ -153,16 +128,11 @@ export default{
 	},
 	computed:{
 		calcMin(){
-			return this.pageSlider.value * 50
+			return this.form.pages * 50
 			//return this.options.sitetype[0].price.low
 		},
 		calcMax(){
-			return this.pageSlider.value * 100
-		}
-	},
-	methods:{
-		calculation(e){
-			
+			return this.form.pages * 100
 		}
 	}
 }
