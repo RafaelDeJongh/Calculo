@@ -157,6 +157,24 @@
 					<p>Some sites require Multilingual support, and this can be done with via a range of options but is not always as easy just installing a plugin. Proper configuration is therefore required together with support of the theme to properly translate all the strings for it. With this feature we want to make the theme as well as the content fully multilingual in whatever language you desire.</p>
 				</div>
 			</v-collapse-wrapper>
+			<!--External Cost-->
+			<v-collapse-wrapper>
+				<h3 id="external-cost-info" v-collapse-toggle>External Costs</h3>
+				<div v-collapse-content>
+					<p>A thing to keep in mind are external costs, these can vary from things you might already know to small things you did not even consider at first. But here we lay down three main categories being:</p>
+					<h4>Domain</h4>
+					<p>The domain is one of the most important parts of your site as it serves as your site's identity. This domain can pretty much be anything with a range of Top Level Domains (TLD’s) like .be, .com, .net, .org to even to the more silly ones like .space or .pizza. Each TLD comes with its yearly cost which can vary from a couple of euro’s to even 100’s of euro’s. However most of the time regular TLD ranges between €10 to €20 a year.</p>
+					<h4>Webhost</h4>
+					<p>The webhost is the second most important part of your site as this will be the location where your site is hosted upon. There are various different webhosts available over the whole world with their own pricing and services. Some are excellent, yet we can not say that about every webhost. We suggest you to stay away from big names like GoDaddy or Hostgator, and pretty much every webhost owned by the conglomerate EIG.</p>
+					<p>Prices can also differ quite intensively depending on also the requirements of the website, a standard website could easily be hosted on a Shared Webhost and can even cost as low as €0.50 cents but can also be around €20 euro a month.</p>
+					<p>Resource intensive websites like E-Commerce or Custom productions might even need to look more to Virtual Private Servers or even Cloud/Dedicated Servers which can cost easily €30 to €200 Euro a month.</p>
+					<p>Webhosting really comes down to what the site requires of resources, a lot of sites are good with a shared webhost, however if you want proper speed and perfect uptime a managed VPS or Dedicated server might even be more something for you.</p>
+					<h4>Media &amp; Graphical Content</h4>
+					<p>Content in types of movies, graphics, vectors, sounds that are required for the site are all things that are external costs and most of the time are outsourced.</p>
+					<p>Therefore, take in consideration if you do not have a logo, corporate identity, etc… that you make sure to see this as an external cost.</p>
+					<p>A lot of web agencies these days do provide a full circle service where you can let everything be build in-house but do make sure of this beforehand and know that this is separated from the actual web development cost of building the website.</p>
+				</div>
+			</v-collapse-wrapper>
 		</v-collapse-group>
 		</section>
 	</main>
@@ -210,30 +228,33 @@ export default{
 		}
 	},
 	methods:{
-	calcPrice(isMin){
-		var copywriting = this.form.copywriting == "Yes" ? (isMin ? 2.5 : 5) : 1;
-			var otherPrice = 0;
-			for(var option in this.options){
-				if ("features" == option){
-					var featuresPrice = this.form[option].reduce((total,current)=>{
-						var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
-						optionFeatures.forEach(check=>{
-							otherPrice += isMin ? check.price.low : check.price.high;
-						});
-						return otherPrice;
-					},0);
-				}else{
-					for(var index in this.options[option]){
-						if(this.options[option][index].text == this.form[option]){
-							otherPrice += isMin ? this.options[option][index].price.low : this.options[option][index].price.high;
+		calcPrice(isMin){
+		//Calculate CopyWriting
+			var copywriting = this.form.copywriting == "Yes" ? (isMin ? 2.5 : 5) : 1;
+			//Calculate Features
+				var otherPrice = 0;
+				for(var option in this.options){
+					if ("features" == option){
+						var featuresPrice = this.form[option].reduce((total,current)=>{
+							var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
+							optionFeatures.forEach(check=>{
+								otherPrice += isMin ? check.price.low : check.price.high;
+							});
+							return otherPrice;
+						},0);
+					}else{
+					//Calculate Options
+						for(var index in this.options[option]){
+							if(this.options[option][index].text == this.form[option]){
+								otherPrice += isMin ? this.options[option][index].price.low : this.options[option][index].price.high;
+							}
 						}
 					}
-				}
-			};
-			//Calculate the price
-			var price = otherPrice + ((this.form.pages * (isMin ? 50 : 150)) * copywriting);
-			return price;
-	}
+				};
+				//Calculate The Total Price + Pages
+				var price = otherPrice + ((this.form.pages * (isMin ? 50 : 150)) * copywriting);
+				return price;
+		}
 	},
 	computed:{
 		//Calculate Mimimum Price
