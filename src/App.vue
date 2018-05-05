@@ -66,7 +66,7 @@
 			<section id="siteresults">
 				<h2>Your currently configured site</h2>
 				<ul>
-					<li v-for="(item,f) in form"><strong>{{f}}:</strong> {{item}}</li>
+					<li v-for="(item,f) in form"><strong>{{f}}:</strong>{{item}}</li>
 				</ul>
 			</section>
 		</section>
@@ -160,7 +160,7 @@
 		</v-collapse-group>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy;{{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>
@@ -209,57 +209,37 @@ export default{
 			}
 		}
 	},
-	computed:{
-	//Calculate Mimimum Price
-		calcMin(){
-			var copywriting = this.form.copywriting == "Yes" ? 2.5 : 1;
+	methods:{
+	calcPrice(isMin){
+		var copywriting = this.form.copywriting == "Yes" ? (isMin ? 2.5 : 5) : 1;
 			var otherPrice = 0;
-			for(var option in this.options) {
-				if ("features" == option) {
+			for(var option in this.options){
+				if ("features" == option){
 					var featuresPrice = this.form[option].reduce((total,current)=>{
 						var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
 						optionFeatures.forEach(check=>{
-							otherPrice += check.price.low
+							otherPrice += isMin ? check.price.low : check.price.high;
 						});
 						return otherPrice;
 					},0);
 				}else{
 					for(var index in this.options[option]){
 						if(this.options[option][index].text == this.form[option]){
-							otherPrice += this.options[option][index].price.low;
+							otherPrice += isMin ? this.options[option][index].price.low : this.options[option][index].price.high;
 						}
 					}
 				}
 			};
 			//Calculate the price
-			var minPrice = otherPrice + ((this.form.pages * 50) * copywriting);
-			return minPrice;
-		},
-	//Calculate Maximum Price
-		calcMax(){
-			var copywriting = this.form.copywriting == "Yes" ? 5 : 1;
-			var otherPrice = 0;
-			for(var option in this.options) {
-				if ("features" == option) {
-					var featuresPrice = this.form[option].reduce((total,current)=>{
-						var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
-						optionFeatures.forEach(check=>{
-							otherPrice += check.price.high
-						});
-						return otherPrice;
-					},0);
-				}else{
-					for(var index in this.options[option]) {
-						if(this.options[option][index].text == this.form[option]){
-							otherPrice += this.options[option][index].price.high;
-						}
-					}
-				}
-			};
-			//Calculate the price
-			var maxPrice = otherPrice + ((this.form.pages * 150) * copywriting);
-			return maxPrice;
-		},
+			var price = otherPrice + ((this.form.pages * (isMin ? 50 : 150)) * copywriting);
+			return price;
+	}
+	},
+	computed:{
+		//Calculate Mimimum Price
+		calcMin(){return this.calcPrice(true);},
+		//Calculate Maximum Price
+		calcMax(){return this.calcPrice(false);}
 	}
 }
 </script>
