@@ -48,32 +48,6 @@ section h1{margin-top:-140px}
 	padding:0;
 }
 #siteresults ul li{margin:.8em 0}
-#price{
-	color:#333;
-	background:$color-white;
-	border-radius:.5em;
-	min-height:80vh;
-	width:50%;
-	margin:3em auto;
-	padding:2em;
-}
-p{
-	margin:1em 0;
-	line-height:1.4;
-}
-#price h2{
-	font-weight:700;
-	text-align:center;
-	margin:1em auto
-}
-#price h3{
-	font-weight:600;
-	margin:1em auto
-}
-#price h4{
-	font-weight:500;
-	margin:1em auto
-}
 /*Columns
 -------------*/
 .cl{
@@ -182,7 +156,7 @@ input[type="number"]{
 	-webkit-appearance:button;
 	   -moz-appearance:button;
 }
-input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{
 	-webkit-appearance:none;
 	background:rgba(0,0,0,0.2)url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDkiPjxwYXRoIGQ9Ik0xLjkgNS4zaDUuMmMuNCAwIC41LjQuMy43TDQuOCA4LjZjLS4yLjItLjQuMi0uNiAwTDEuNiA2Yy0uMi0uMi0uMS0uNy4zLS43em01LjItMS43SDEuOWMtLjQgMC0uNS0uNC0uMy0uN0w0LjIuM2MuMi0uMi40LS4yLjYgMGwyLjYgMi42Yy4yLjMuMS43LS4zLjd6IiBmaWxsPSIjZmZmIi8+PHBhdGggZmlsbD0iI2JiYiIgZD0iTTAgNC4xaDl2LjhIMHoiLz48L3N2Zz4=) no-repeat center center;
@@ -299,6 +273,65 @@ input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-web
 [tooltip-info]:hover:before,[tooltip-info]:hover:after{
 	opacity:1;
 	pointer-events:auto;
+}
+/*Info
+-------------*/
+#price{
+	color:#333;
+	background:$color-white;
+	border-radius:.5em;
+	width:50%;
+	margin:3em auto;
+	padding:2em;
+}
+p{
+	margin:1em 0;
+	line-height:1.4;
+}
+#price h2{
+	font-weight:700;
+	text-align:center;
+	margin:.5em auto 1em
+}
+#price h3{
+	font-weight:600;
+	margin:0
+}
+#price h4{
+	font-weight:500;
+	margin:1em auto
+}
+/*Accordion*/
+.v-collapse-group{
+	background-color:#fff;
+	box-shadow:0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+	max-width:100%;
+	position:relative;
+	border-radius:.25rem;
+}
+.v-collapse-toggler{
+	cursor:pointer;
+	border-radius:.25rem;
+	padding:.75rem 1.25rem;
+	background-color:rgba(0,0,0,.08);
+	border-bottom:1px solid rgba(0,0,0,.125);
+	box-shadow:0 1px 2px rgba(10,10,10,0.1);
+}
+.v-collapse-toggler:after{
+	content:"\f107";
+	font-family:"FontAwesome";
+	float:right;
+}
+.v-collapse-content{
+	max-height: 0;
+	overflow: hidden;
+	padding:0 1.25rem;
+	transition:max-height .3s ease-out,padding .3s ease-out;
+}
+.v-collapse-content.v-collapse-content-end{
+	padding:.5rem 1.25rem;
+	max-height:2000px;
+	transition:max-height .3s ease-in,padding .3s ease-in;
 }
 /*Footer
 -------------*/
