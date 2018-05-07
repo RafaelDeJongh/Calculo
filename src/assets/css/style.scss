@@ -334,7 +334,7 @@ p{
 }
 .v-collapse-content.v-collapse-content-end{
 	padding:.5rem 1.25rem;
-	max-height:2000px;
+	max-height:5000px;
 	transition:max-height .3s ease-in,padding .3s ease-in;
 }
 /*Footer
@@ -383,41 +383,30 @@ footer{
 /*Fade*/
 .fade-enter-active,.fade-leave-active{transition:all .5s}
 .fade-enter,.fade-leave-to{opacity:0}
-/*FadeInOnLoad
----------------*/
-/*@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@-moz-keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-body{
-	opacity:0;
-	-webkit-animation:fadeIn ease-in 1;
-	   -moz-animation:fadeIn ease-in 1;
-			animation:fadeIn ease-in 1;
-	-webkit-animation-fill-mode:forwards;
-	   -moz-animation-fill-mode:forwards;
-			animation-fill-mode:forwards;
-	-webkit-animation-duration:.5s;
-	   -moz-animation-duration:.5s;
-			animation-duration:.5s;
-	-webkit-animation-delay:.4s;
-	   -moz-animation-delay:.4s;
-			animation-delay:.4s;
-}*/
 /*MediaQueries
 ------------------*/
-@media screen and(max-width:770px){}
-@media screen and(max-width:480px){}
-@media screen and(max-width:385px){}
+@media screen and(max-width:1200px){
+	#price{width:90%}
+}
+@media screen and(max-width:1024px){
+	
+}
+@media screen and(max-width:768px){
+	#price{width:100%}
+}
+@media screen and(max-width:500px){
+	
+}
 /*Links
 -------------*/
 a,a:visited{
-	color:#eee;
+	color:$color-white;
 	text-decoration:none;
-	-webkit-transition:all .3s ease-out;
-	   -moz-transition:all .3s ease-out;
-			transition:all .3s ease-out;
+	-webkit-transition:all .3s ease;
+	   -moz-transition:all .3s ease;
+			transition:all .3s ease;
 }
-a:active,a:hover{color:$color-white}
+a:active,a:hover{color:darken($color-white,10%)}
 /*Scrollbar
 -------------*/
 ::-webkit-scrollbar{width:12px;height:12px;background-color:rgba(0,0,0,.2)}

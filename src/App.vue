@@ -71,37 +71,37 @@
 			</section>
 		</section>
 		<section id="price">
-			<h2>Why exactly does a website has this price?</h2>
-			<p>A website on its own never really has a static price, especially not a solid price range for any web project you want to be created for you. If you ask for a website with the same specifics you can still have a wide range of costs related to it if you would ask this to various different web development bureaus.</p>
-			<p>And that’s also why this website calculator exists, it’s really hard to even impossible to put a proper price on a website as every website is unique and has different requirements than others. The prices for websites just vary so much that it really comes down on what kind of features you need for your website.</p>
+			<h2>What am I exactly paying for?</h2>
+			<p>Websites never have a specific price, especially not a solid price range for any web project you want to be created for you. Even if you ask for a website with the same features, the cost can vary depending on a number of external factors, most importantly depending on the developer.</p>
+			<p>That’s why this website calculator exists, it’s really hard (or even impossible) to put a proper price on a specific project, since every website is unique and has different requirements. It really comes down to the features you need for your website.</p>
 			<p>However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.</p>
-			<p>We therefore divided this in six chapters being:</p>
+			<p>We therefore divided this in six chapters, being:</p>
 		<v-collapse-group>
 			<!--Site Types-->
 			<v-collapse-wrapper>
 				<h3 id="site-info" v-collapse-toggle>Site types</h3>
 				<div v-collapse-content>
-					<p>Here we decided to have three categories for the site types being:</p>
+					<p>Here we have three categories for the site types:</p>
 					<h4>Standard</h4>
 					<p>A standard website is what most people would need, this can range from a portfolio website to a small business one pager or landing page. These kinds of websites can easily range from €800 to €2000 excl. VAT.</p>
-					<p>The price can vary depending on the various features you select but is most of the time what most clients will need.</p>
+					<p>The price can vary depending on the various features you select, but as an starting point it is what most clients will need.</p>
 					<h4>E-Commerce</h4>
-					<p>The E-Commerce websites is a whole other story as a lot more thought needs to be added to creating an E-Commerce website, some features like Search Engine Optimisation (SEO), Social Media Optimisation (SMO) and Security are almost a definitely must have and can easily range from €3000 to €6000 excl. VAT.</p>
+					<p>E-Commerce websites are a whole other story. A lot more thought needs to be added to creating an E-Commerce website, some features like Search Engine Optimisation (SEO), Social Media Optimisation (SMO) and Security are almost a definite must have, and can easily range from €3000 to €6000 excl. VAT.</p>
 					<h4>Custom Production</h4>
-					<p>With Custom Production websites we come to the priciest and most advanced kind of website type as this is mostly something very specific that the client requires to be added to their website like a functionality that has to be created specifically for them.</p>
-					<p>This is also the least picked option as the amount of these kind of websites tend to be €8000 to even more than €10000 excl. VAT, as it requires a lot more hours to be put into the development of such a site.</p>
+					<p>Custom Production websites are the priciest and most advanced kind of website type. This allows the client to request a more specific website equipped with custom functionality that has to be created specifically for them.</p>
+					<p>This is also the least picked option as the price for these kind of websites tends to be €8000 or even more than €10000 excl. VAT, as it requires a lot more hours to be put into the development.</p>
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
 			<v-collapse-wrapper>
 				<h3 id="design-info" v-collapse-toggle>Design types</h3>
 				<div v-collapse-content>
-					<p>With design types we tend to have a hole lot more of customisation options but we simplified it to two to make it more understandable for everyone. Here we have:</p>
+					<p>With design types we could have a lot more options but we simplified it to two, making it more understandable for everyone. Here we have:</p>
 					<h4>Template</h4>
-					<p>Choosing a template is most of the time the easiest and also the cheapest way to save some money, as picking a template with your developer for him then to later adjust it to your needs makes it all the easier for both parties.</p>
-					<p>As with WordPress having currently over 2000 Free themes, and with places like ThemeForest having even more Premium themes to choose from. It really is one of the better choices to vastly lower the development cost of the actual website.</p>
+					<p>Choosing a template allows faster developments and is more affordable. By choosing an existing template, your developer will focus on adjusting it to your needs, making the process easier for both parties.</p>
+					<p>WordPress has currently over 2000 Free quality themes, and services like ThemeForest.Net can provide even more Premium themes to choose from. It really is one of the better choices to vastly lower the development cost of the actual website.</p>
 					<h4>Custom Design</h4>
-					<p>A Custom Design on the other hand is completely made from scratch where both a design team and UI/UX expert will work on the theme to create that perfect and unique fit for you. This will increase the development cost quite a bit. This however will make sure your website will stand out and be unique for everyone that visits it.</p>
+					<p>A Custom Design on the other hand is made completely from scratch. Both a design team and UI/UX expert will work on the theme to create that perfect and unique fit for you. This will increase the development cost quite a bit, but it set your website apart and allow it to better match your brand.</p>
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
