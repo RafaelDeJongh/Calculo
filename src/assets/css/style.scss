@@ -122,11 +122,10 @@ ul#features li{width:50%}
 	pointer-events:none;
 }
 .selectbox::after{
-	content:"\f0dd";
-	font-family:"FontAwesome";
+	content:"\f0d7";
+	font-family:"Font Awesome\ 5 Free";
 	color:$color-white;
 	font-size:1.3em;
-	line-height:.7;
 	right:.5em;
 	top:50%;
 	margin-top:-.5em;
@@ -323,7 +322,7 @@ p{
 }
 .v-collapse-toggler:after{
 	content:"\f107";
-	font-family:"FontAwesome";
+	font-family:"Font Awesome\ 5 Free";
 	float:right;
 }
 .v-collapse-content{

@@ -1,7 +1,7 @@
 <template>
 <div id="app">
 	<header>
-		<a href="index.html"><img src="./assets/images/webcalc-logo.svg" alt="Web Calc Logo"/></a>
+		<a href="./"><img src="./assets/images/webcalc-logo.svg" alt="Web Calc Logo"/></a>
 	</header>
 	<main id="webcalc">
 		<section id="calculator">
@@ -66,7 +66,7 @@
 			<section id="siteresults">
 				<h2>Your currently configured site</h2>
 				<ul>
-					<li v-for="(item,f) in form"><strong>{{f}}:</strong>{{item}}</li>
+					<li v-for="(item,f) in form"><strong>{{f}}:</strong>&nbsp;{{item}}</li>
 				</ul>
 			</section>
 		</section>
@@ -235,7 +235,7 @@ export default{
 			//Calculate Features
 				var otherPrice = 0;
 				for(var option in this.options){
-					if ("features" == option){
+					if("features" == option){
 						var featuresPrice = this.form[option].reduce((total,current)=>{
 							var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
 							optionFeatures.forEach(check=>{
