@@ -14,7 +14,7 @@
 			<div class="cl">
 				<!--Type of Site-->
 				<div>
-					<label for="sitetype">What type of site do you want? <a href="#site-info" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
+					<label for="sitetype">What type of site do you want? <a href="#site-info" v-scroll-to="'#site-info'" v-collapse-toggle="'site-info'" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
 							<option v-for="option in options.sitetype" v-bind:value="option.text">{{option.text}}</option>
@@ -24,7 +24,7 @@
 				</div>
 				<!--Design Choise-->
 				<div>
-					<label for="design">What kind of design? <a href="#design-info" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
+					<label for="design">What kind of design? <a href="#design-info" v-scroll-to="'#design-info'" v-collapse-toggle="'design-info'" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="design" name="design" v-model="form.designChoices">
 						<option v-for="option in options.designChoices" v-bind:value="option.text">{{option.text}}</option>
@@ -33,7 +33,7 @@
 				</div>
 				<!--Development Speed-->
 				<div>
-					<label for="speed">How fast do you need it build? <a href="#speed-info" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
+					<label for="speed">How fast do you need it build? <a href="#speed-info" v-scroll-to="'#speed-info'" v-collapse-toggle="'speed-info'" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
 						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
@@ -41,34 +41,33 @@
 					</div>
 				</div>
 			</div>
-				<transition name="fade">
-					<h2 v-if="form.designChoices == 'Custom Design'">Show new labels</h2>
-				</transition>
-				<!--Amount of Pages-->
+			<!--Amount of Pages-->
 			<div class="cl">
 				<div>
-					<label for="amountPages">How many pages do you require? <a href="#page-info" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
+					<label for="amountPages">How many pages do you require? <a href="#page-info" v-scroll-to="'#page-info'" v-collapse-toggle="'page-info'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
 					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
 				</div>
 				<!--CopyWriting-->
 				<div>
-					<label for="copywriting">Do your pages need copywriting? <a href="#copywriting-info" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
+					<label for="copywriting">Do your pages need copywriting? <a href="#copywriting-info" v-scroll-to="'#copywriting-info'" v-collapse-toggle="'page-info'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-yes" value="Yes" v-model="form.copywriting"><label for="copywrite-yes">Yes</label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-no" value="No" v-model="form.copywriting"><label for="copywrite-no">No</label>
 				</div>
 			</div>
 				<!--Features-->
-				<label for="features">Do you require any of the following features?  <a href="#features-info" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
+				<label for="features">Do you require any of the following features?  <a href="#features-info" v-scroll-to="'#features-info'" v-collapse-toggle="'features-info'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features">
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
 				</form>
-			<section id="siteresults">
+			<transition name="fade">
+			<section id="siteresults" v-if="form.designChoices == 'Custom Design'">
 				<h2>Your currently configured site</h2>
 				<ul>
 					<li v-for="(item,f) in form"><strong>{{f}}:</strong>&nbsp;{{item}}</li>
 				</ul>
 			</section>
+			</transition>
 		</section>
 		<section id="price">
 			<h2>What am I exactly paying for?</h2>
@@ -78,7 +77,7 @@
 			<p>We therefore divided this in six chapters, being:</p>
 		<v-collapse-group>
 			<!--Site Types-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="site-info">
 				<h3 id="site-info" v-collapse-toggle>Site types</h3>
 				<div v-collapse-content>
 					<p>Here we have three categories for the site types:</p>
@@ -93,7 +92,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="design-info">
 				<h3 id="design-info" v-collapse-toggle>Design types</h3>
 				<div v-collapse-content>
 					<p>With design types we could have a lot more options but we simplified it to two, making it more understandable for everyone. Here we have:</p>
@@ -105,7 +104,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="speed-info">
 				<h3 id="speed-info" v-collapse-toggle>Build speed</h3>
 				<div v-collapse-content>
 					<p>Build speed is definitely also a component that you have to take into account, the faster you want the website to be build, the more money it will cost as it has to take priority into account.</p>
@@ -115,7 +114,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Pages-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="page-info">
 				<h3 id="page-info" v-collapse-toggle>Amount of pages</h3>
 				<div v-collapse-content>
 					<p>A big part of the creation of the website is the pages. Depending on the number of pages the total amount can also drastically change.</p>
@@ -129,7 +128,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Features-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="features-info">
 				<h3 id="features-info" v-collapse-toggle>Features</h3>
 				<div v-collapse-content>
 					<p>This calculator offers in total 12 of the most requested features of a website, and while you definitely do not need all, every one might be good to consider to build you a perfect website, that is not only good looking and properly written but also secure, fast and highly ranked!</p>
@@ -158,7 +157,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--External Cost-->
-			<v-collapse-wrapper>
+			<v-collapse-wrapper ref="external-cost-info">
 				<h3 id="external-cost-info" v-collapse-toggle>External Costs</h3>
 				<div v-collapse-content>
 					<p>A thing to keep in mind are external costs, these can vary from things you might already know to small things you did not even consider at first. But here we lay down three main categories being:</p>
@@ -168,8 +167,9 @@
 					<p>The webhost is the second most important part of your site as this will be the location where your site is hosted upon. There are various different webhosts available over the whole world with their own pricing and services. Some are excellent, yet we can not say that about every webhost. We suggest you to stay away from big names like GoDaddy or HostGator, and pretty much every webhost owned by the conglomerate EIG.</p>
 					<p>We personally can recommend SiteGround, A2Hosting for America and Neostrada for Europe.</p>
 					<p>Prices can also differ quite intensively depending on also the requirements of the website, a standard website could easily be hosted on a Shared Webhost and can even cost as low as €0.50 cents but can also be around €20 euro a month.</p>
-					<p>Resource intensive websites like E-Commerce or Custom productions might even need to look more to Virtual Private Servers or even Cloud/Dedicated Servers which can cost easily €30 to €200 Euro a month.</p>
+					<p>Resource intensive websites like E-Commerce or Custom Productions might even need to look for a  Virtual Private Servers or even Cloud/Dedicated Servers, which can cost easily €30 to €200 Euro a month.</p>
 					<p>Webhosting really comes down to what the site requires of resources, a lot of sites are good with a shared webhost, however if you want proper speed and perfect uptime a managed VPS or Dedicated server might even be more something for you.</p>
+					<p>In general the average hosting price is around €30 to €120 Euro a year.</p>
 					<h4>Media &amp; Graphical Content</h4>
 					<p>Content in types of movies, graphics, vectors, sounds that are required for the site are all things that are external costs and most of the time are outsourced.</p>
 					<p>Therefore, take in consideration if you do not have a logo, corporate identity, etc… that you make sure to see this as an external cost.</p>
@@ -179,7 +179,7 @@
 		</v-collapse-group>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy;{{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy; 2017 &ndash; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>
@@ -254,7 +254,7 @@ export default{
 					}
 				};
 				//Calculate The Total Price + Pages
-				var price = otherPrice + ((this.form.pages * (isMin ? 50 : 150)) * copywriting);
+				var price = otherPrice + ((this.form.pages * (isMin ? 50 : 120)) * copywriting);
 				return price;
 		}
 	},

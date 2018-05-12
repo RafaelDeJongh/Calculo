@@ -14,7 +14,8 @@ body{
 	color:$color-white;
 	background-color:$color-dark;
 	font-family:'Montserrat',sans-serif;
-	font-weight:400
+	font-weight:400;
+	overflow-x:hidden
 }
 /*Header
 ------------------*/
@@ -308,7 +309,7 @@ p{
 	position:relative;
 	border-radius:.25rem;
 }
-.v-collapse-toggler{
+h3.v-collapse-toggler{
 	cursor:pointer;
 	border-radius:.25rem;
 	padding:.75rem 1.25rem;
@@ -317,17 +318,17 @@ p{
 	box-shadow:0 1px 2px rgba(10,10,10,0.1);
 	transition:background .3s ease
 }
-.v-collapse-toggler:hover{
+h3.v-collapse-toggler:hover{
 	background-color:$color-light;
 }
-.v-collapse-toggler:after{
+h3.v-collapse-toggler:after{
 	content:"\f107";
 	font-family:"Font Awesome\ 5 Free";
 	float:right;
 }
 .v-collapse-content{
-	max-height: 0;
-	overflow: hidden;
+	max-height:0;
+	overflow:hidden;
 	padding:0 1.25rem;
 	transition:max-height .3s ease-out,padding .3s ease-out;
 }
@@ -336,13 +337,24 @@ p{
 	max-height:5000px;
 	transition:max-height .3s ease-in,padding .3s ease-in;
 }
+/*Fade*/
+.fade-enter-active,.fade-leave-active{
+	transition:all .5s ease-in-out;
+	max-height:1000px;
+}
+.fade-enter,.fade-leave-to{
+	opacity:0;
+	max-height:0;
+	overflow:hidden;
+}
 /*Footer
 -------------*/
 footer{
 	font-weight:300;
 	width:100%;
+	padding:0 2em;
 	text-align:center;
-	margin:1em auto;
+	margin:0 auto 1em;
 }
 /*ToTop
 ---------------*/
@@ -379,19 +391,26 @@ footer{
 			transform:scale(1.1);
 }
 #totop:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiBmaWxsPSIjYzJiNDlhIj48cGF0aCBkPSJNNC40NjUgMzY2LjQ3NWw3LjA3IDcuMDcxYzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMEwyMjQgMTc4LjA1M2wxOTUuNDk0IDE5NS40OTNjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwbDcuMDctNy4wNzFjNC42ODYtNC42ODYgNC42ODYtMTIuMjg0IDAtMTYuOTdsLTIxMS4wNS0yMTEuMDUxYy00LjY4Ni00LjY4Ni0xMi4yODQtNC42ODYtMTYuOTcxIDBMNC40NjUgMzQ5LjUwNWMtNC42ODcgNC42ODYtNC42ODcgMTIuMjg0IDAgMTYuOTd6Ii8+PC9zdmc+)}
-/*Fade*/
-.fade-enter-active,.fade-leave-active{transition:all .5s}
-.fade-enter,.fade-leave-to{opacity:0}
 /*MediaQueries
 ------------------*/
 @media screen and(max-width:1200px){
 	#price{width:90%}
 }
 @media screen and(max-width:1024px){
-	
+	section h1{margin:1em auto 0}
+	#priceCalculator{
+		width:calc(100% + 4em);
+		z-index:9;
+		top:0;
+		margin:-31px 0 0 -2em;
+		border-radius:0;
+		text-align:center;
+		box-shadow:0 2px 2px rgba(0,0,0,.2);
+	}
+	form.calcForm,#siteresults{width:80%}
 }
 @media screen and(max-width:768px){
-	#price{width:100%}
+	#price,form.calcForm,#siteresults{width:100%}
 }
 @media screen and(max-width:500px){
 	
