@@ -9,7 +9,7 @@
 			<h3>Estimated Price:</h3>
 			<label>&euro;{{calcMin}} to &euro;{{calcMax}} excl. VAT</label>
 		</aside>
-			<h1>The Easy Website Price Calculator</h1>
+			<h1>The Easy WordPress Website Price Calculator</h1>
 			<form class="calcForm" action="#">
 			<div class="cl">
 				<!--Type of Site-->
@@ -179,7 +179,7 @@
 		</v-collapse-group>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy; 2017 &ndash; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy;	{{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>
