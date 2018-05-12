@@ -14,7 +14,7 @@
 			<div class="cl">
 				<!--Type of Site-->
 				<div>
-					<label for="sitetype">What type of site do you want? <a href="#site-info" v-scroll-to="'#site-info'" v-collapse-toggle="'site-info'" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
+					<label for="sitetype">What type of site do you want? <a href="#siteInfo" v-scroll-to="'#siteInfo'" v-collapse-toggle="'siteInfo'" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
 							<option v-for="option in options.sitetype" v-bind:value="option.text">{{option.text}}</option>
@@ -24,7 +24,7 @@
 				</div>
 				<!--Design Choise-->
 				<div>
-					<label for="design">What kind of design? <a href="#design-info" v-scroll-to="'#design-info'" v-collapse-toggle="'design-info'" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
+					<label for="design">What kind of design? <a href="#designInfo" v-scroll-to="'#designInfo'" v-collapse-toggle="'designInfo'" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="design" name="design" v-model="form.designChoices">
 						<option v-for="option in options.designChoices" v-bind:value="option.text">{{option.text}}</option>
@@ -33,7 +33,7 @@
 				</div>
 				<!--Development Speed-->
 				<div>
-					<label for="speed">How fast do you need it build? <a href="#speed-info" v-scroll-to="'#speed-info'" v-collapse-toggle="'speed-info'" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
+					<label for="speed">How fast do you need it build? <a href="#speedInfo" v-scroll-to="'#speedInfo'" v-collapse-toggle="'speedInfo'" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
 						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
@@ -44,18 +44,18 @@
 			<!--Amount of Pages-->
 			<div class="cl">
 				<div>
-					<label for="amountPages">How many pages do you require? <a href="#page-info" v-scroll-to="'#page-info'" v-collapse-toggle="'page-info'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
+					<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
 					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
 				</div>
 				<!--CopyWriting-->
 				<div>
-					<label for="copywriting">Do your pages need copywriting? <a href="#copywriting-info" v-scroll-to="'#copywriting-info'" v-collapse-toggle="'page-info'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
+					<label for="copywriting">Do your pages need copywriting? <a href="#copywritingInfo" v-on:click="alwaysOpen" v-scroll-to="'#copywritingInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-yes" value="Yes" v-model="form.copywriting"><label for="copywrite-yes">Yes</label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-no" value="No" v-model="form.copywriting"><label for="copywrite-no">No</label>
 				</div>
 			</div>
 				<!--Features-->
-				<label for="features">Do you require any of the following features?  <a href="#features-info" v-scroll-to="'#features-info'" v-collapse-toggle="'features-info'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
+				<label for="features">Do you require any of the following features?  <a href="#featuresInfo" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features">
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
@@ -77,8 +77,8 @@
 			<p>We therefore divided this in six chapters, being:</p>
 		<v-collapse-group>
 			<!--Site Types-->
-			<v-collapse-wrapper ref="site-info">
-				<h3 id="site-info" v-collapse-toggle>Site types</h3>
+			<v-collapse-wrapper ref="siteInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="siteInfo" v-collapse-toggle>Site types</h3>
 				<div v-collapse-content>
 					<p>Here we have three categories for the site types:</p>
 					<h4>Standard</h4>
@@ -92,8 +92,8 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
-			<v-collapse-wrapper ref="design-info">
-				<h3 id="design-info" v-collapse-toggle>Design types</h3>
+			<v-collapse-wrapper ref="designInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="designInfo" v-collapse-toggle>Design types</h3>
 				<div v-collapse-content>
 					<p>With design types we could have a lot more options but we simplified it to two, making it more understandable for everyone. Here we have:</p>
 					<h4>Template</h4>
@@ -104,8 +104,8 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
-			<v-collapse-wrapper ref="speed-info">
-				<h3 id="speed-info" v-collapse-toggle>Build speed</h3>
+			<v-collapse-wrapper ref="speedInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="speedInfo" v-collapse-toggle>Build speed</h3>
 				<div v-collapse-content>
 					<p>Build speed is definitely also a component that you have to take into account, the faster you want the website to be build, the more money it will cost as it has to take priority into account.</p>
 					<p>Most websites are usually finished between one or two months, this depends of course on the requirements and features that the website needs.</p>
@@ -114,13 +114,13 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Pages-->
-			<v-collapse-wrapper ref="page-info">
-				<h3 id="page-info" v-collapse-toggle>Amount of pages</h3>
+			<v-collapse-wrapper ref="pageInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="pageInfo" v-collapse-toggle>Amount of pages</h3>
 				<div v-collapse-content>
 					<p>A big part of the creation of the website is the pages. Depending on the number of pages the total amount can also drastically change.</p>
 					<p>A default number of pages for a website is pretty much between 1 to 10 pages, and this is also a very reasonable number not only for the developer but also for your website visitors that they do not have to go through 100’s of pages.</p>
 					<p>Of course, on some custom sites this is just required and this will also reflect on the total price asked for such a website.</p>
-					<h3 id="copywriting-info">Copywriting</h3>
+					<h3 id="copywritingInfo">Copywriting</h3>
 					<p>Copywriting is in combination of the number of pages, a lot of pages require content and while a lot of clients tend to already know what they want on the pages, having the right content that fits properly for your website is not always the case.</p>
 					<p>Having your pages copywritten is a good way to make sure all the content is in order which as well includes a good portion of Search Engine Optimisation (SEO) in it already to boost the website already with the content on the site itself.</p>
 					<p>A proper copywritten page can do a lot of good things for your website as well for your visitors of your site.</p>
@@ -128,8 +128,8 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Features-->
-			<v-collapse-wrapper ref="features-info">
-				<h3 id="features-info" v-collapse-toggle>Features</h3>
+			<v-collapse-wrapper ref="featuresInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="featuresInfo" v-collapse-toggle>Features</h3>
 				<div v-collapse-content>
 					<p>This calculator offers in total 12 of the most requested features of a website, and while you definitely do not need all, every one might be good to consider to build you a perfect website, that is not only good looking and properly written but also secure, fast and highly ranked!</p>
 					<h4>Search Engine Optimisation (SEO)</h4>
@@ -157,8 +157,8 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--External Cost-->
-			<v-collapse-wrapper ref="external-cost-info">
-				<h3 id="external-cost-info" v-collapse-toggle>External Costs</h3>
+			<v-collapse-wrapper ref="externalCostInfo" v-on:onStatusChange="addActiveClass">
+				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>
 				<div v-collapse-content>
 					<p>A thing to keep in mind are external costs, these can vary from things you might already know to small things you did not even consider at first. But here we lay down three main categories being:</p>
 					<h4>Domain</h4>
@@ -229,6 +229,17 @@ export default{
 		}
 	},
 	methods:{
+		//Add active class to current open accordion
+		addActiveClass:function(){
+			for(var option in this.$refs){
+				const currentPanel = this.$refs[option];
+				if(true == currentPanel.status){
+					return true;
+				}
+			}
+		},
+		//Keep the accordion from closing on double toggle
+		alwaysOpen:function(){this.$refs.pageInfo.close();},
 		calcPrice(isMin){
 		//Calculate CopyWriting
 			var copywriting = this.form.copywriting == "Yes" ? (isMin ? 2.5 : 5) : 1;
