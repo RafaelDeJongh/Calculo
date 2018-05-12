@@ -77,7 +77,7 @@
 			<p>We therefore divided this in six chapters, being:</p>
 		<v-collapse-group>
 			<!--Site Types-->
-			<v-collapse-wrapper ref="siteInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="siteInfo">
 				<h3 id="siteInfo" v-collapse-toggle>Site types</h3>
 				<div v-collapse-content>
 					<p>Here we have three categories for the site types:</p>
@@ -92,7 +92,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
-			<v-collapse-wrapper ref="designInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="designInfo">
 				<h3 id="designInfo" v-collapse-toggle>Design types</h3>
 				<div v-collapse-content>
 					<p>With design types we could have a lot more options but we simplified it to two, making it more understandable for everyone. Here we have:</p>
@@ -104,7 +104,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
-			<v-collapse-wrapper ref="speedInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="speedInfo">
 				<h3 id="speedInfo" v-collapse-toggle>Build speed</h3>
 				<div v-collapse-content>
 					<p>Build speed is definitely also a component that you have to take into account, the faster you want the website to be build, the more money it will cost as it has to take priority into account.</p>
@@ -114,7 +114,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Pages-->
-			<v-collapse-wrapper ref="pageInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="pageInfo">
 				<h3 id="pageInfo" v-collapse-toggle>Amount of pages</h3>
 				<div v-collapse-content>
 					<p>A big part of the creation of the website is the pages. Depending on the number of pages the total amount can also drastically change.</p>
@@ -128,7 +128,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Features-->
-			<v-collapse-wrapper ref="featuresInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="featuresInfo">
 				<h3 id="featuresInfo" v-collapse-toggle>Features</h3>
 				<div v-collapse-content>
 					<p>This calculator offers in total 12 of the most requested features of a website, and while you definitely do not need all, every one might be good to consider to build you a perfect website, that is not only good looking and properly written but also secure, fast and highly ranked!</p>
@@ -157,7 +157,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--External Cost-->
-			<v-collapse-wrapper ref="externalCostInfo" v-on:onStatusChange="addActiveClass">
+			<v-collapse-wrapper ref="externalCostInfo">
 				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>
 				<div v-collapse-content>
 					<p>A thing to keep in mind are external costs, these can vary from things you might already know to small things you did not even consider at first. But here we lay down three main categories being:</p>
@@ -229,15 +229,6 @@ export default{
 		}
 	},
 	methods:{
-		//Add active class to current open accordion
-		addActiveClass:function(){
-			for(var option in this.$refs){
-				const currentPanel = this.$refs[option];
-				if(true == currentPanel.status){
-					return true;
-				}
-			}
-		},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){this.$refs.pageInfo.close();},
 		calcPrice(isMin){
