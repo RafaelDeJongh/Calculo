@@ -75,7 +75,7 @@
 			<p>That’s why this website calculator exists, it’s really hard (or even impossible) to put a proper price on a specific project, since every website is unique and has different requirements. It really comes down to the features you need for your website.</p>
 			<p>However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.</p>
 			<p>We therefore divided this in six chapters, being:</p>
-			<button v-on:click="openAll">Open All</button>
+			<i class="fas fa-sort-amount-down" v-on:click="openAll"></i>
 		<v-collapse-group ref="toggleAll">
 			<!--Site Types-->
 			<v-collapse-wrapper ref="siteInfo">
@@ -231,11 +231,10 @@ export default{
 	},
 	methods:{
 		openAll:function(){
-		console.log(this.$refs.toggleAll);
-			this.$refs.toggleAll.openAll(); // opens all elements
+			this.$refs.toggleAll.openAll();
 		},
 		activateClass:function(vm){
-			
+			console.log(this);
 		},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){
