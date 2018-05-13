@@ -14,7 +14,7 @@
 			<div class="cl">
 				<!--Type of Site-->
 				<div>
-					<label for="sitetype">What type of site do you want? <a href="#siteInfo" v-scroll-to="'#siteInfo'" v-collapse-toggle="'siteInfo'" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
+					<label for="sitetype">What type of site do you want? <a href="#siteInfo" v-on:click="alwaysOpen" v-scroll-to="'#siteInfo'" v-collapse-toggle="'siteInfo'" tooltip-info="Info about type of site."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
 							<option v-for="option in options.sitetype" v-bind:value="option.text">{{option.text}}</option>
@@ -24,7 +24,7 @@
 				</div>
 				<!--Design Choise-->
 				<div>
-					<label for="design">What kind of design? <a href="#designInfo" v-scroll-to="'#designInfo'" v-collapse-toggle="'designInfo'" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
+					<label for="design">What kind of design? <a href="#designInfo" v-on:click="alwaysOpen" v-scroll-to="'#designInfo'" v-collapse-toggle="'designInfo'" tooltip-info="Info about what kind of design you need."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="design" name="design" v-model="form.designChoices">
 						<option v-for="option in options.designChoices" v-bind:value="option.text">{{option.text}}</option>
@@ -33,7 +33,7 @@
 				</div>
 				<!--Development Speed-->
 				<div>
-					<label for="speed">How fast do you need it build? <a href="#speedInfo" v-scroll-to="'#speedInfo'" v-collapse-toggle="'speedInfo'" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
+					<label for="speed">How fast do you need it build? <a href="#speedInfo" v-on:click="alwaysOpen" v-scroll-to="'#speedInfo'" v-collapse-toggle="'speedInfo'" tooltip-info="Info about how fast you want the website to be made."><i class="fas fa-info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
 						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 				<!--Features-->
-				<label for="features">Do you require any of the following features?  <a href="#featuresInfo" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
+				<label for="features">Do you require any of the following features?  <a href="#featuresInfo" v-on:click="alwaysOpen" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features">
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 				</ul>
@@ -75,7 +75,8 @@
 			<p>That’s why this website calculator exists, it’s really hard (or even impossible) to put a proper price on a specific project, since every website is unique and has different requirements. It really comes down to the features you need for your website.</p>
 			<p>However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.</p>
 			<p>We therefore divided this in six chapters, being:</p>
-		<v-collapse-group>
+			<button v-on:click="openAll">Open All</button>
+		<v-collapse-group ref="toggleAll">
 			<!--Site Types-->
 			<v-collapse-wrapper ref="siteInfo">
 				<h3 id="siteInfo" v-collapse-toggle>Site types</h3>
@@ -157,7 +158,7 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--External Cost-->
-			<v-collapse-wrapper ref="externalCostInfo">
+			<v-collapse-wrapper ref="externalCostInfo" v-on:onStatusChange="activateClass">
 				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>
 				<div v-collapse-content>
 					<p>A thing to keep in mind are external costs, these can vary from things you might already know to small things you did not even consider at first. But here we lay down three main categories being:</p>
@@ -229,8 +230,21 @@ export default{
 		}
 	},
 	methods:{
+		openAll:function(){
+		console.log(this.$refs.toggleAll);
+			this.$refs.toggleAll.openAll(); // opens all elements
+		},
+		activateClass:function(vm){
+			
+		},
 		//Keep the accordion from closing on double toggle
-		alwaysOpen:function(){this.$refs.pageInfo.close();},
+		alwaysOpen:function(){
+			for(var i in this.$refs){
+				if(true == this.$refs[i].status){
+					this.$refs[i].close();
+				}
+			}
+		},
 		calcPrice(isMin){
 		//Calculate CopyWriting
 			var copywriting = this.form.copywriting == "Yes" ? (isMin ? 2.5 : 5) : 1;
