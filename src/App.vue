@@ -49,19 +49,24 @@
 				</div>
 				<!--CopyWriting-->
 				<div>
-					<label for="copywriting">Do your pages need copywriting? <a href="#copywritingInfo" v-on:click="alwaysOpen" v-scroll-to="'#copywritingInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
+					<label for="copywriting">Do your pages need copywriting? <a href="#copywritingInfo" v-on:click="alwaysOpen" v-scroll-to="'#copywritingInfo'" v-collapse-toggle="'copywritingInfo'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="fas fa-info-circle"></i></a></label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-yes" value="Yes" v-model="form.copywriting"><label for="copywrite-yes">Yes</label>
 					<input class="copywriting" name="copywriting" type="radio" id="copywrite-no" value="No" v-model="form.copywriting"><label for="copywrite-no">No</label>
 				</div>
 			</div>
 				<!--Features-->
 				<label for="features">Do you require any of the following features?  <a href="#featuresInfo" v-on:click="alwaysOpen" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
-				<ul id="features">
+				<ul id="features" class="features">
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
+					<transition name="fade">
+						<ul id="eCommerceFeatures" class="features" v-if="form.sitetype == 'E-Commerce'">
+							<li v-for="option in options.eCommerceFeatures"><input class="eCommerceFeatures" name="eCommerceFeatures" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.eCommerceFeatures"><label v-bind:for="option.id">{{option.text}}</label></li>
+						</ul>
+					</transition>
 				</ul>
 				</form>
 			<transition name="fade">
-			<section id="siteresults" v-if="form.designChoices == 'Custom Design'">
+			<section id="siteresults" v-if="form.configuration == true">
 				<h2>Your currently configured site</h2>
 				<ul>
 					<li v-for="(item,f) in form"><strong>{{f}}:</strong>&nbsp;{{item}}</li>
@@ -70,11 +75,7 @@
 			</transition>
 		</section>
 		<section id="price">
-			<h2>What am I exactly paying for?</h2>
-			<p>Websites never have a specific price, especially not a solid price range for any web project you want to be created for you. Even if you ask for a website with the same features, the cost can vary depending on a number of external factors, most importantly depending on the developer.</p>
-			<p>That’s why this website calculator exists, it’s really hard (or even impossible) to put a proper price on a specific project, since every website is unique and has different requirements. It really comes down to the features you need for your website.</p>
-			<p>However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.</p>
-			<p>We therefore divided this in six chapters, being:</p>
+			<introductionText></introductionText>
 		<v-collapse-group>
 			<!--Site Types-->
 			<v-collapse-wrapper ref="siteInfo">
@@ -104,6 +105,13 @@
 					<amountOfPagesText></amountOfPagesText>
 				</div>
 			</v-collapse-wrapper>
+			<!--Copywriting-->
+			<v-collapse-wrapper ref="copywritingInfo">
+				<h3 id="copywritingInfo" v-collapse-toggle>Copywriting</h3>
+				<div v-collapse-content>
+					<copywritingText></copywritingText>
+				</div>
+			</v-collapse-wrapper>
 			<!--Features-->
 			<v-collapse-wrapper ref="featuresInfo">
 				<h3 id="featuresInfo" v-collapse-toggle>Features</h3>
@@ -112,16 +120,23 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--External Cost-->
-			<v-collapse-wrapper ref="externalCostInfo" v-on:onStatusChange="activateClass">
+			<v-collapse-wrapper ref="externalCostInfo">
 				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>
 				<div v-collapse-content>
 					<externalCostsText></externalCostsText>
 				</div>
 			</v-collapse-wrapper>
+			<!--Rates-->
+			<v-collapse-wrapper ref="externalCostInfo">
+				<h3 id="externalCostInfo" v-collapse-toggle>Hourly or Per Project Pricing?</h3>
+				<div v-collapse-content>
+					<ratesText></ratesText>
+				</div>
+			</v-collapse-wrapper>
 		</v-collapse-group>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy;	{{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>

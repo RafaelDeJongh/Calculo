@@ -89,14 +89,15 @@ form ul{
 	list-style:none;
 	padding:0;
 }
-ul#features{
+ul.features{
 	display:flex;
 	flex-wrap:wrap;
 	flex-direction:row;
 	justify-content:flex-start;
 	align-items:stretch;
+	width:100%;
 }
-ul#features li{width:50%}
+ul.features li{width:50%}
 /*Option Select*/
 .selectbox{
 	position:relative;

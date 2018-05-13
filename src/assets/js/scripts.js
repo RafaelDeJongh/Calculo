@@ -10,7 +10,9 @@ export default{
 				speed:"Around 1 to 2 months",
 				pages:1,
 				copywriting:"No",
-				features:[]
+				features:[],
+				eCommerceFeatures:[],
+				configuration:false
 			},
 			options:{
 				sitetype:[
@@ -36,17 +38,25 @@ export default{
 					{id:"server",      price:{low:400,high:800}, text:"Server/Webhost Setup"},
 					{id:"mail",        price:{low:150,high:300}, text:"Mail Setup"},
 					{id:"gallery",     price:{low:250,high:500}, text:"Image/Sliders Gallery"},
-					{id:"pagebuilder", price:{low:150,high:300}, text:"PageBuilder Configuration"},
+					{id:"pagebuilder", price:{low:150,high:300}, text:"PageBuilder Intergration"},
 					{id:"contactform", price:{low:150,high:300}, text:"Contact Form"},
 					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Support"},
-					{id:"backup",      price:{low:200,high:400}, text:"Backup (Offsite/Server side backup configuration)"}
-				]
+					{id:"backup",      price:{low:200,high:400}, text:"Backup (Offsite/Server side backup Intergration)"}
+				],
+				eCommerceFeatures:[
+					{id:"pgw",         price:{low:250,high:500}, text:"Payment Gateway Intergration"},
+					{id:"social",      price:{low:400,high:800}, text:"Social Login Intergration"},
+					{id:"livesearch",  price:{low:300,high:600}, text:"Live Search Intergration"},
+					{id:"livechat",    price:{low:500,high:1000},text:"Live Chat Intergration"},
+					{id:"catalog",     price:{low:600,high:1200},text:"Catalogus Mode"},
+					{id:"pos",         price:{low:800,high:2000},text:"Point Of Sale (POS)"},
+				],
 			}
 		}
 	},
 	methods:{
 		activateClass:function(vm){
-			console.log(markDownComponent);
+			/*console.log(markDownComponent);*/
 		},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){
@@ -65,9 +75,13 @@ export default{
 					if("features" == option){
 						var featuresPrice = this.form[option].reduce((total,current)=>{
 							var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
-							optionFeatures.forEach(check=>{
-								otherPrice += isMin ? check.price.low : check.price.high;
-							});
+							optionFeatures.forEach(check=>{otherPrice += isMin ? check.price.low : check.price.high;});
+							return otherPrice;
+						},0);
+					}else if("eCommerceFeatures" == option){
+						var featuresECPrice = this.form[option].reduce((total,current)=>{
+							var optionECFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
+							optionECFeatures.forEach(check=>{otherPrice += isMin ? check.price.low : check.price.high;});
 							return otherPrice;
 						},0);
 					}else{
