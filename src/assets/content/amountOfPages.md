@@ -4,7 +4,7 @@ A default number of pages for a website is pretty much between 1 to 10 pages, an
 
 Of course, on some custom sites this is just required and this will also reflect on the total price asked for such a website.
 
-### Copywriting{#copywritingInfo}
+### Copywriting
 
 Copywriting is in combination of the number of pages, a lot of pages require content and while a lot of clients tend to already know what they want on the pages, having the right content that fits properly for your website is not always the case.
 
