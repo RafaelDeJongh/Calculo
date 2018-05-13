@@ -79,28 +79,28 @@
 		<v-collapse-group>
 			<!--Site Types-->
 			<v-collapse-wrapper ref="siteInfo">
-				<h3 id="siteInfo" v-collapse-toggle>Site types</h3>
+				<h3 id="siteInfo" v-collapse-toggle>Site Types</h3>
 				<div v-collapse-content>
 					<siteTypesText></siteTypesText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
 			<v-collapse-wrapper ref="designInfo">
-				<h3 id="designInfo" v-collapse-toggle>Design types</h3>
+				<h3 id="designInfo" v-collapse-toggle>Design Types</h3>
 				<div v-collapse-content>
 					<designTypesText></designTypesText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
 			<v-collapse-wrapper ref="speedInfo">
-				<h3 id="speedInfo" v-collapse-toggle>Build speed</h3>
+				<h3 id="speedInfo" v-collapse-toggle>Build Speed</h3>
 				<div v-collapse-content>
 					<buildSpeedText></buildSpeedText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Pages-->
 			<v-collapse-wrapper ref="pageInfo">
-				<h3 id="pageInfo" v-collapse-toggle>Amount of pages</h3>
+				<h3 id="pageInfo" v-collapse-toggle>Amount of Pages</h3>
 				<div v-collapse-content>
 					<amountOfPagesText></amountOfPagesText>
 				</div>
@@ -128,7 +128,7 @@
 			</v-collapse-wrapper>
 			<!--Rates-->
 			<v-collapse-wrapper ref="externalCostInfo">
-				<h3 id="externalCostInfo" v-collapse-toggle>Hourly or Per Project Pricing?</h3>
+				<h3 id="externalCostInfo" v-collapse-toggle>Pricing &amp; Rates</h3>
 				<div v-collapse-content>
 					<ratesText></ratesText>
 				</div>
