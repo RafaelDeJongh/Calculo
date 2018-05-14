@@ -1,26 +1,7 @@
-import introductionText  from '@/assets/content/introduction.md';
-import siteTypesText     from '@/assets/content/siteTypes.md';
-import designTypesText   from '@/assets/content/designTypes.md';
-import buildSpeedText    from '@/assets/content/buildSpeed.md';
-import amountOfPagesText from '@/assets/content/amountOfPages.md';
-import copywritingText   from '@/assets/content/copywriting.md';
-import featuresText      from '@/assets/content/features.md';
-import externalCostsText from '@/assets/content/externalCosts.md';
-import ratesText         from '@/assets/content/rates.md';
-import VueSlideBar       from 'vue-slide-bar'
+import markDownComponent from '@/assets/content'
 export default{
+	components:markDownComponent,
 	name:'app',
-	components:{
-	introductionText,
-	siteTypesText,
-	designTypesText,
-	buildSpeedText,
-	amountOfPagesText,
-	copywritingText,
-	featuresText,
-	externalCostsText,
-	ratesText,
-	VueSlideBar},
 	data(){
 		return{
 			form:{
@@ -60,7 +41,7 @@ export default{
 					{id:"pagebuilder", price:{low:150,high:300}, text:"PageBuilder Intergration"},
 					{id:"contactform", price:{low:150,high:300}, text:"Contact Form"},
 					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Support"},
-					{id:"backup",      price:{low:200,high:400}, text:"Offsite Backup Intergration"}
+					{id:"backup",      price:{low:200,high:400}, text:"Backup (Offsite/Server side backup Intergration)"}
 				],
 				eCommerceFeatures:[
 					{id:"pgw",         price:{low:250,high:500}, text:"Payment Gateway Intergration"},
@@ -70,17 +51,6 @@ export default{
 					{id:"catalog",     price:{low:600,high:1200},text:"Catalogus Mode"},
 					{id:"pos",         price:{low:800,high:2000},text:"Point Of Sale (POS)"},
 				],
-			},
-			slider:{
-				data:[5,20,50,100,200,250,],
-				range:[
-					{label:'5–10'},
-					{label:'10-20'},
-					{label:'20-50'},
-					{label:'50-100'},
-					{label:'100-200'},
-					{label:'+200'}
-					]
 			}
 		}
 	},
