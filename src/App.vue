@@ -43,9 +43,8 @@
 			</div>
 			<!--Amount of Pages-->
 			<div class="cl">
-				<div>
-					<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
-					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
+				<div class="cl-stretch">
+					<VueSlideBar v-model="form.pages" :data="slider.data" :range="slider.range" :tooltipStyles="{backgroundColor:'#c2b49a',borderColor:'#c2b49a'}" :labelStyles="{color:'#eee',backgroundColor:'#c2b49a'}" :processStyle="{backgroundColor:'#c2b49a'}"/>
 				</div>
 				<!--CopyWriting-->
 				<div>
