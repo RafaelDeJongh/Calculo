@@ -44,8 +44,11 @@
 			<!--Amount of Pages-->
 			<div class="cl">
 				<div>
-					<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
-					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
+					<!--<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
+					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">-->
+					<output for="rangeAmountPages">{{form.pages}}</output>
+					<input name="rangeAmountPages" type="range" min="1" max="250" v-model="form.pages">
+					
 				</div>
 				<!--CopyWriting-->
 				<div>
@@ -61,6 +64,11 @@
 					<transition name="fade">
 						<ul id="eCommerceFeatures" class="features" v-if="form.sitetype == 'E-Commerce'">
 							<li v-for="option in options.eCommerceFeatures"><input class="eCommerceFeatures" name="eCommerceFeatures" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.eCommerceFeatures"><label v-bind:for="option.id">{{option.text}}</label></li>
+						</ul>
+					</transition>
+					<transition name="fade">
+						<ul id="customFeatures" class="features" v-if="form.sitetype == 'Custom Production'">
+							<li v-for="option in options.customFeatures"><input class="customFeatures" name="customFeatures" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.customFeatures"><label v-bind:for="option.id">{{option.text}}</label></li>
 						</ul>
 					</transition>
 				</ul>

@@ -1,7 +1,7 @@
 import markDownComponent from '@/assets/content'
 export default{
-	components:markDownComponent,
 	name:'app',
+	components:markDownComponent,
 	data(){
 		return{
 			form:{
@@ -12,20 +12,21 @@ export default{
 				copywriting:"No",
 				features:[],
 				eCommerceFeatures:[],
+				customFeatures:[],
 				configuration:false
 			},
 			options:{
 				sitetype:[
 					{text:"Standard",         price:{low:550, high:750}},
-					{text:"E-Commerce",       price:{low:2000,high:4000}},
-					{text:"Custom Production",price:{low:5000,high:8000}}
+					{text:"E-Commerce",       price:{low:1500,high:3000}},
+					{text:"Custom Production",price:{low:4000,high:6000}}
 				],
 				designChoices:[
 					{text:"Template",     price:{low:200, high:500}},
-					{text:"Custom Design",price:{low:1200,high:2000}}
+					{text:"Custom Design",price:{low:1000,high:2000}}
 				],
 				speed:[
-					{text:"Less than 1 month",   price:{low:1000,high:3000}},
+					{text:"Less than 1 month",   price:{low:1500,high:3000}},
 					{text:"Around 1 to 2 months",price:{low:500, high:1000}},
 					{text:"More than 2 months",  price:{low:300, high:500}}
 				],
@@ -51,6 +52,14 @@ export default{
 					{id:"catalog",     price:{low:600,high:1200},text:"Catalogus Mode"},
 					{id:"pos",         price:{low:800,high:2000},text:"Point Of Sale (POS)"},
 				],
+				customFeatures:[
+					{id:"crm",          price:{low:1000,high:2500}, text:"Customer Relationship Management (CRM)"},
+					{id:"invoice",      price:{low:1500,high:3000}, text:"Invoicing and Accounting Intergration"},
+					{id:"mailMarketing",price:{low:1500,high:3500}, text:"E-Mail Marketing Intergration"},
+					{id:"events",       price:{low:2500,high:5000}, text:"Events and Sales Intergration"},
+					{id:"forums",       price:{low:1000,high:2000}, text:"Forum Intergration"},
+					{id:"helpdesk",     price:{low:2000,high:4000}, text:"Helpdesk Intergration"},
+				],
 			}
 		}
 	},
@@ -72,7 +81,7 @@ export default{
 			//Calculate Features
 				var otherPrice = 0;
 				for(var option in this.options){
-					if("features" == option || "eCommerceFeatures" == option){
+					if("features" == option || "eCommerceFeatures" == option || "customFeatures" == option){
 						var featuresPrice = this.form[option].reduce((total,current)=>{
 							var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
 							optionFeatures.forEach(check=>{otherPrice += isMin ? check.price.low : check.price.high;});
