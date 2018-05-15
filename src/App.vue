@@ -44,11 +44,8 @@
 			<!--Amount of Pages-->
 			<div class="cl">
 				<div>
-					<!--<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
-					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">-->
-					<output for="rangeAmountPages">{{form.pages}}</output>
-					<input name="rangeAmountPages" type="range" min="1" max="250" v-model="form.pages">
-					
+					<label for="amountPages">How many pages do you require? <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="fas fa-info-circle"></i></a></label>
+					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
 				</div>
 				<!--CopyWriting-->
 				<div>
@@ -127,6 +124,24 @@
 					<featuresText></featuresText>
 				</div>
 			</v-collapse-wrapper>
+			<!--E-Commerce Features-->
+			<transition name="fade">
+			<v-collapse-wrapper ref="featuresInfo" v-if="form.sitetype == 'E-Commerce'">
+				<h3 id="eCommerceFeaturesInfo" v-collapse-toggle>E-Commerce Features</h3>
+				<div v-collapse-content>
+					<eCommerceFeaturesText></eCommerceFeaturesText>
+				</div>
+			</v-collapse-wrapper>
+			</transition>
+			<!--Custom Production Features-->
+			<transition name="fade">
+			<v-collapse-wrapper ref="featuresInfo" v-if="form.sitetype == 'Custom Production'">
+				<h3 id="customProductionFeaturesInfo" v-collapse-toggle>Custom Production Features</h3>
+				<div v-collapse-content>
+					<customProductionText></customProductionText>
+				</div>
+			</v-collapse-wrapper>
+			</transition>
 			<!--External Cost-->
 			<v-collapse-wrapper ref="externalCostInfo">
 				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>

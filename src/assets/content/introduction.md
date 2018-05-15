@@ -6,4 +6,4 @@ That’s why this website calculator exists, it’s really hard (or even impossi
 
 However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.
 
-We therefore divided this in eight chapters, being:
+We therefore divided this in the following chapters, being:

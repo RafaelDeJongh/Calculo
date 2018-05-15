@@ -1,4 +1,4 @@
-This calculator offers in total 12 of the most requested features of a website, and while you definitely do not need all, every one might be good to consider to build you a perfect website, that is not only good looking and properly written but also secure, fast and highly ranked!
+This calculator offers a base of 12 of the most requested features of any website, and while you definitely do not need all, every one might be good to consider to build you a perfect website, that is not only good looking and properly written but also secure, fast and highly ranked!
 
 #### Search Engine Optimisation (SEO)
 

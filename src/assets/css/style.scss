@@ -156,6 +156,7 @@ input[type="number"]{
 	color:$color-white;
 	border-radius:6px;
 	padding:.5em;
+	min-width:100px;
 	-webkit-appearance:button;
 	   -moz-appearance:button;
 }

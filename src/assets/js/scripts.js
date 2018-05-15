@@ -42,22 +42,20 @@ export default{
 					{id:"pagebuilder", price:{low:150,high:300}, text:"PageBuilder Intergration"},
 					{id:"contactform", price:{low:150,high:300}, text:"Contact Form"},
 					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Support"},
-					{id:"backup",      price:{low:200,high:400}, text:"Backup (Offsite/Server side backup Intergration)"}
+					{id:"backup",      price:{low:200,high:400}, text:"Offsite Backup Intergration"}
 				],
 				eCommerceFeatures:[
 					{id:"pgw",         price:{low:250,high:500}, text:"Payment Gateway Intergration"},
 					{id:"social",      price:{low:400,high:800}, text:"Social Login Intergration"},
 					{id:"livesearch",  price:{low:300,high:600}, text:"Live Search Intergration"},
 					{id:"livechat",    price:{low:500,high:1000},text:"Live Chat Intergration"},
-					{id:"catalog",     price:{low:600,high:1200},text:"Catalogus Mode"},
+					{id:"catalog",     price:{low:600,high:1200},text:"Catalog Mode"},
 					{id:"pos",         price:{low:800,high:2000},text:"Point Of Sale (POS)"},
 				],
 				customFeatures:[
 					{id:"crm",          price:{low:1000,high:2500}, text:"Customer Relationship Management (CRM)"},
 					{id:"invoice",      price:{low:1500,high:3000}, text:"Invoicing and Accounting Intergration"},
-					{id:"mailMarketing",price:{low:1500,high:3500}, text:"E-Mail Marketing Intergration"},
-					{id:"events",       price:{low:2500,high:5000}, text:"Events and Sales Intergration"},
-					{id:"forums",       price:{low:1000,high:2000}, text:"Forum Intergration"},
+					{id:"mailMarketing",price:{low:1500,high:3500}, text:"Email Marketing Intergration"},
 					{id:"helpdesk",     price:{low:2000,high:4000}, text:"Helpdesk Intergration"},
 				],
 			}

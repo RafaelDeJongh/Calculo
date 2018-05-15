@@ -14,4 +14,4 @@ E-Commerce websites are a whole other story. A lot more thought needs to be adde
 
 Custom Production websites are the priciest and most advanced kind of website type. This allows the client to request a more specific website equipped with custom functionality that has to be created specifically for them.
 
-This is also the least picked option as the price for these kind of websites tends to be €8000 or even more than €10000 excl. VAT, as it requires a lot more hours to be put into the development.
+This is also the least picked option as the price for these kinds of websites tends to be €8000 or even more than €10000 excl. VAT, as it requires a lot more hours to be put into the development.
