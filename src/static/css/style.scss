@@ -344,12 +344,12 @@ p{
 	line-height:1.4;
 }
 #price h2{
-	font-weight:700;
+	font-weight:500;
 	text-align:center;
 	margin:.5em auto 1em
 }
 #price h3{
-	font-weight:600;
+	font-weight:500;
 	margin:0
 }
 #price h4{
@@ -406,11 +406,10 @@ h3.v-collapse-toggler:after{
 /*Footer
 -------------*/
 footer{
-	font-weight:300;
+	font-weight:400;
 	width:100%;
-	padding:0 2em;
 	text-align:center;
-	margin:0 auto 1em;
+	margin:0 auto 2em;
 }
 /*ToTop
 ---------------*/
@@ -440,13 +439,13 @@ footer{
 	height:28px;
 }
 #totop:hover{
-	background-color:$text-color;
+	background-color:$background-color;
 	color:$accent-color;
 	-webkit-transform:scale(1.1);
 	   -moz-transform:scale(1.1);
 			transform:scale(1.1);
 }
-#totop:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiBmaWxsPSIjYzJiNDlhIj48cGF0aCBkPSJNNC40NjUgMzY2LjQ3NWw3LjA3IDcuMDcxYzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMEwyMjQgMTc4LjA1M2wxOTUuNDk0IDE5NS40OTNjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwbDcuMDctNy4wNzFjNC42ODYtNC42ODYgNC42ODYtMTIuMjg0IDAtMTYuOTdsLTIxMS4wNS0yMTEuMDUxYy00LjY4Ni00LjY4Ni0xMi4yODQtNC42ODYtMTYuOTcxIDBMNC40NjUgMzQ5LjUwNWMtNC42ODcgNC42ODYtNC42ODcgMTIuMjg0IDAgMTYuOTd6Ii8+PC9zdmc+)}
+#totop:hover:after{background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiBmaWxsPSIjNDUyMjRkIj48cGF0aCBkPSJNNC40NjUgMzY2LjQ3NWw3LjA3IDcuMDcxYzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMEwyMjQgMTc4LjA1M2wxOTUuNDk0IDE5NS40OTNjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwbDcuMDctNy4wNzFjNC42ODYtNC42ODYgNC42ODYtMTIuMjg0IDAtMTYuOTdsLTIxMS4wNS0yMTEuMDUxYy00LjY4Ni00LjY4Ni0xMi4yODQtNC42ODYtMTYuOTcxIDBMNC40NjUgMzQ5LjUwNWMtNC42ODcgNC42ODYtNC42ODcgMTIuMjg0IDAgMTYuOTd6Ii8+PC9zdmc+)}
 /*MediaQueries
 ------------------*/
 @media screen and(max-width:1200px){
@@ -467,9 +466,7 @@ footer{
 @media screen and(max-width:768px){
 	#price,form.calcForm,#siteresults{width:100%}
 }
-@media screen and(max-width:500px){
-	
-}
+@media screen and(max-width:500px){}
 /*Links
 -------------*/
 a,a:visited{

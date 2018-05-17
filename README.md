@@ -6,6 +6,8 @@ Visit the website at: https://www.calculo.cf
 
 Or the GitHub version: https://rafaeldejongh.github.io/Calculo/dist
 
+Developers version: https://webcalc.ga/
+
 ## Build Setup
 
 ``` bash
