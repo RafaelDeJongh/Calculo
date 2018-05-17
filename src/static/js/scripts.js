@@ -1,4 +1,4 @@
-import markDownComponent from '@/assets/content'
+import markDownComponent from '@/static/content'
 export default{
 	name:'app',
 	components:markDownComponent,
