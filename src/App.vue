@@ -1,9 +1,9 @@
 <template>
 <div id="app">
 	<header>
-		<a href="./"><img src="./assets/images/webcalc-logo.svg" alt="Web Calc Logo"/></a>
+		<a href="./"><img src="./assets/images/calculo-logo.svg" alt="Calculo Logo - The Easy WordPress Website Price Calculator"/></a>
 	</header>
-	<main id="webcalc">
+	<main id="calculo">
 		<section id="calculator">
 		<aside id="priceCalculator">
 			<h3>Estimated Price:</h3>
@@ -159,7 +159,7 @@
 		</v-collapse-group>
 		</section>
 	</main>
-	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Web Calc | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
+	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} | Calculo | <a href="https://www.rafaeldejongh.com" target="_blank">www.RafaelDeJongh.com</a> | All Rights Reserved.</footer>
 	<back-to-top visibleoffset="250"><button id="totop"></button></back-to-top>
 </div>
 </template>

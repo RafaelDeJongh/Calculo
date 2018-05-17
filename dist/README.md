@@ -1,6 +1,7 @@
-# WebCalc
-Web Calculator is an easy to use website calculator to estimate the cost of a website.
+# Calculo
 
-Github Version: https://rafaeldejongh.github.io/webcalc
+> Calculo is here to inform you about website prices. With our handy Website Calculator, you will easily be able to figure out what a website might cost you!
 
-Live Version: https://webcalc.ga
+Visit the website at: https://www.calculo.cf/
+
+Or the GitHub version: https://rafaeldejongh.github.io/Calculo/dist/
