@@ -1,0 +1,47 @@
+   ____           _                  _         
+  / ___|   __ _  | |   ___   _   _  | |   ___  
+ | |      / _` | | |  / __| | | | | | |  / _ \ 
+ | |___  | (_| | | | | (__  | |_| | | | | (_) |
+  \____|  \__,_| |_|  \___|  \__,_| |_|  \___/ 
+                                               
+
+/* TEAM */
+	Developer:Rafaël De Jongh
+	Site:www.rafaeldejongh.com
+	Facebook:fb.me/Rafael.De.Jongh.Artist
+	Twitter:@Rafael_De_Jongh
+	LinkedIn:in/rafaeldejongh
+	From: Antwerp, Belgium
+
+	Expert Guidance:José Pardilla "Yogensia"
+	Site:www.yogensia.com
+	Twitter:@yogensia
+	From:Alicante, Spain
+
+/* THANKS */
+	Inspiration & Graphical Feedback:Siu Soan
+	Site:www.siusoan.com
+	LinkedIn:in/siumeisoan
+	
+	Graphical Feedback:Johannes De Jongh
+	Site:www.johannesdejongh.com
+	Company:www.sandhillsstudio.be
+	
+	Design Feedback:Jochem Maes
+	LinkedIn:in/jochem-maes
+
+	Code Feedback:Sif
+
+/* SITE */
+	Site Name:Calculo
+	Site Description:The Easy WordPress Website Price Calculator
+	Site URL:www.calculo.cf
+	Language:English
+	Doctype:HTML5
+	Standards:HTML5,CSS3,JS
+	Components:VueJS,Vue-CLI,WebPack,NodeJS,ExpressJS,Babel,SASS,NPM,MarkDown
+	Software:Notepad++,FileZilla,Git,Github,Adobe Photoshop,Adobe Illustrator,Adobe XD
+	Github Repository:wwww.github.com/RafaelDeJongh/Calculo
+
+/* LICENSE */
+	Creative Commons License: Attribution-ShareAlike 4.0 International

@@ -57,7 +57,7 @@
 				</div>
 			</div>
 				<!--Features-->
-				<label for="features">Do you require any of the following features?  <a href="#featuresInfo" v-on:click="alwaysOpen" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
+				<label for="features">Do you require any of the following features? <a href="#featuresInfo" v-on:click="alwaysOpen" v-scroll-to="'#featuresInfo'" v-collapse-toggle="'featuresInfo'" tooltip-info="Select all the features you think you will require."><i class="fas fa-info-circle"></i></a></label>
 				<ul id="features" class="features">
 					<li v-for="option in options.features"><input class="features" name="features" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.features"><label v-bind:for="option.id">{{option.text}}</label></li>
 					<transition name="fade">
