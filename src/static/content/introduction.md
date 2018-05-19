@@ -5,5 +5,3 @@ Websites never have a specific price, especially not a solid price range for any
 That’s why this website calculator exists, it’s really hard (or even impossible) to put a proper price on a specific project, since every website is unique and has different requirements. It really comes down to the features you need for your website.
 
 However, we want to simplify this for you with this easy website calculator specifically made for estimating a given cost for a potential “WordPress” website.
-
-We therefore divided this in the following chapters, being:

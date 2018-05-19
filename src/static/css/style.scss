@@ -1,7 +1,8 @@
 /*Variables
 ------------------*/
 $background-color:#fcfbfa;
-$accent-color:#45224d;
+$background-sub-color:#efefef;
+$accent-color:#78288c;
 $text-color:#45224d;
 $text-color-inv:#fff;
 /*Rafael De Jongh's Personal Reset v0.3 - github.com/RafaelDeJongh/Rafael-CSS-Reset */
@@ -12,7 +13,7 @@ body{
 	width:100%;
 	min-height:100%;
 	color:$text-color;
-	background-color:$background-color;
+	background-color:$background-sub-color;
 	font-family:'Montserrat',sans-serif;
 	font-weight:400;
 	overflow-x:hidden
@@ -22,21 +23,33 @@ body{
 header{
 	width:100%;
 	padding:.2em 0;
+	background:linear-gradient(rgba($accent-color,.9),rgba($accent-color,.9)),url(/static/images/Calculo-Code-Header.jpg);
+	background-size:cover;
+	background-position:50% 75%;
 	box-shadow:0 2px 2px rgba(0,0,0,.2);
 	margin-bottom:2em;
-	border-bottom:2px solid $accent-color;
 	text-align:center;
 	transition:all .3s ease-in-out;
 }
-header:hover{background-color:$accent-color}
-header a{display:block}
-header a svg{
-	max-height:120px;
-	margin:auto;
-	padding:.5em 0;
-	fill:$accent-color
+header a{display:block;position:relative}
+header a div{
+	position:relative;
+	display:inline-block;
+	width:400px
 }
-header:hover a svg{fill:$background-color}
+header a svg{
+	max-height:150px;
+	margin:auto;
+	padding:1em 0;
+	fill:$background-color
+}
+header a h1{
+	color:#fff;
+	position:absolute;
+	font-size:.6em;
+	left:15em;
+	bottom:3.6em;
+}
 /*Content
 -------------*/
 main{
@@ -65,6 +78,7 @@ section h1{
 	flex-direction:row;
 	justify-content:space-between;
 	align-items:stretch;
+	margin:2.5em auto;
 }
 .cl-stretch{width:50%;display:inline-block;box-sizing:border-box;}
 /*Price Calculator
@@ -85,7 +99,7 @@ section h1{
 -------------*/
 form.calcForm{
 	width:50%;
-	margin:auto;
+	margin:-130px auto 0;
 	-webkit-touch-callout:none;
 	  -webkit-user-select:none;
 		 -moz-user-select:none;
@@ -135,13 +149,16 @@ ul.features li{width:50%}
 	pointer-events:none;
 }
 .selectbox::after{
-	content:"\f0d7";
-	font-family:"Font Awesome\ 5 Free";
+	content:"";
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNNDEgMjg4aDIzOGMyMS40IDAgMzIuMSAyNS45IDE3IDQxTDE3NyA0NDhjLTkuNCA5LjQtMjQuNiA5LjQtMzMuOSAwTDI0IDMyOWMtMTUuMS0xNS4xLTQuNC00MSAxNy00MXoiLz48L3N2Zz4=);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:13px;
+	height:20px;
 	color:$text-color-inv;
 	font-size:1.3em;
 	right:.5em;
-	top:50%;
-	margin-top:-.5em;
+	top:10%;
 }
 .selectbox::before{
 	width:2em;
@@ -160,11 +177,11 @@ ul.features li{width:50%}
 /*Number Input*/
 input[type="number"]{
 	position:relative;
-	background:$accent-color;
-	color:$text-color-inv;
-	border:none;
+	background:$background-color;
+	color:$accent-color;
+	border:2px solid $accent-color;
 	border-radius:6px;
-	padding:.5em;
+	padding:.5em .8em;
 	min-width:100px;
 	-webkit-appearance:button;
 	   -moz-appearance:button;
@@ -172,13 +189,13 @@ input[type="number"]{
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{
 	-webkit-appearance:none;
-	background:rgba(0,0,0,0.2)url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDkiPjxwYXRoIGQ9Ik0xLjkgNS4zaDUuMmMuNCAwIC41LjQuMy43TDQuOCA4LjZjLS4yLjItLjQuMi0uNiAwTDEuNiA2Yy0uMi0uMi0uMS0uNy4zLS43em01LjItMS43SDEuOWMtLjQgMC0uNS0uNC0uMy0uN0w0LjIuM2MuMi0uMi40LS4yLjYgMGwyLjYgMi42Yy4yLjMuMS43LS4zLjd6IiBmaWxsPSIjZmZmIi8+PHBhdGggZmlsbD0iI2JiYiIgZD0iTTAgNC4xaDl2LjhIMHoiLz48L3N2Zz4=) no-repeat center center;
+	background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDkiPjxwYXRoIGZpbGw9IiM3ODI4OGMiIGQ9Ik0xLjkgNS4zaDUuMmMuNCAwIC41LjQuMy43TDQuOCA4LjZjLS4yLjItLjQuMi0uNiAwTDEuNiA2Yy0uMi0uMi0uMS0uNy4zLS43em01LjItMS43SDEuOWMtLjQgMC0uNS0uNC0uMy0uN0w0LjIuM2MuMi0uMi40LS4yLjYgMGwyLjYgMi42Yy4yLjMuMS43LS4zLjd6Ii8+PC9zdmc+) no-repeat center center;
 	border-radius:0 6px 6px 0;
 	width:1em;
 	opacity:1;
 	position:absolute;
 	top:0;
-	right:0;
+	right:3px;
 	bottom:0;
 	-webkit-transition:all .3s ease-out;
 	   -moz-transition:all .3s ease-out;
@@ -220,6 +237,8 @@ input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-web
 	background:$accent-color;
 	border:2px solid $accent-color
 }
+[type="checkbox"]:not(:checked) + label:before,[type="radio"]:not(:checked) + label:before{background-color:$background-color}
+
 [type="checkbox"]:checked + label:before,[type="checkbox"]:not(:checked) + label:before,[type="radio"]:checked + label:before,[type="radio"]:not(:checked) + label:before{
 	content:"";
 	display:inline-block;
@@ -238,6 +257,7 @@ input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-web
 	outline:0;
 	box-sizing:border-box
 }
+[type="radio"]+ label{margin-right:1.5em}
 /*Range Slider*/
 input[type="range"]{
 	-webkit-appearance:none;
@@ -280,8 +300,28 @@ output{
 	text-align:center;
 }
 /*Info Checkboxes*/
-[type="checkbox"]:checked ~ i {opacity:1}
-li i {opacity:0}
+.info-circle{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjNzgyODhjIj48cGF0aCBkPSJNMjU2IDhDMTE5LjA0MyA4IDggMTE5LjA4MyA4IDI1NmMwIDEzNi45OTcgMTExLjA0MyAyNDggMjQ4IDI0OHMyNDgtMTExLjAwMyAyNDgtMjQ4QzUwNCAxMTkuMDgzIDM5Mi45NTcgOCAyNTYgOHptMCAxMTBjMjMuMTk2IDAgNDIgMTguODA0IDQyIDQycy0xOC44MDQgNDItNDIgNDItNDItMTguODA0LTQyLTQyIDE4LjgwNC00MiA0Mi00MnptNTYgMjU0YzAgNi42MjctNS4zNzMgMTItMTIgMTJoLTg4Yy02LjYyNyAwLTEyLTUuMzczLTEyLTEydi0yNGMwLTYuNjI3IDUuMzczLTEyIDEyLTEyaDEydi02NGgtMTJjLTYuNjI3IDAtMTItNS4zNzMtMTItMTJ2LTI0YzAtNi42MjcgNS4zNzMtMTIgMTItMTJoNjRjNi42MjcgMCAxMiA1LjM3MyAxMiAxMnYxMDBoMTJjNi42MjcgMCAxMiA1LjM3MyAxMiAxMnYyNHoiLz48L3N2Zz4=);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	position:relative;
+	top:2px;
+	opacity:.6;
+	transition:all .3s ease
+}
+.info-circle:hover{opacity:1}
+.features{
+	input[type="checkbox"]:checked ~ a i.info-circle{opacity:1}
+	label:hover + a i.info-circle{opacity:.7}
+	a i.info-circle{
+		opacity:0;
+		top:3px;
+	}
+	a i.info-circle:hover{opacity:1}
+}
 /*ToolTip*/
 [tooltip-info]{
 	position:relative;
@@ -332,17 +372,16 @@ li i {opacity:0}
 	opacity:1;
 	pointer-events:auto;
 }
-/*Info
+/*Price Info
 -------------*/
 #price{
 	color:#333;
 	background:darken($background-color,1%);
-	border:2px solid $accent-color;
 	border-radius:.5em;
 	width:50%;
-	margin:3em auto;
-	padding:2em;
+	margin:3em auto
 }
+#price section{padding:2em 2em 1em}
 p{
 	margin:1em 0;
 	line-height:1.4;
@@ -366,26 +405,32 @@ p{
 	box-shadow:0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
 	max-width:100%;
 	position:relative;
-	border-radius:.25rem;
+	border-radius:6px;
 }
+.v-collapse-group .vc-collapse:first-child h3.v-collapse-toggler{border-top-left-radius:6px;border-top-right-radius:6px}
+.v-collapse-group .vc-collapse:last-child h3.v-collapse-toggler{border-bottom-right-radius:6px;border-bottom-left-radius:6px}
 h3.v-collapse-toggler{
 	cursor:pointer;
-	border-radius:.25rem;
 	padding:.75rem 1.25rem;
-	background-color:rgba(0,0,0,.03);
-	border-bottom:1px solid rgba(0,0,0,.125);
-	box-shadow:0 1px 2px rgba(10,10,10,0.1);
-	transition:background .3s ease
+	background-color:rgba(0,0,0,.05);
+	border-top:1px solid rgba($accent-color,.125);
+	border-bottom:1px solid rgba($accent-color,.125);
+	box-shadow:0 1px 2px rgba(10,10,10,.1);
+	transition:all .3s ease
 }
 h3.v-collapse-toggler:hover{
 	background-color:$accent-color;
 	color:$text-color-inv;
 }
 h3.v-collapse-toggler:after{
-	content:"\f107";
-	font-family:"Font Awesome\ 5 Free";
+	content:"";
+	display:block;
+	width:16px;
+	height:25px;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjNDUyMjRkIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+);
 	float:right;
 }
+h3.v-collapse-toggler:hover:after{background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+)}
 .v-collapse-content{
 	max-height:0;
 	overflow:hidden;
@@ -411,6 +456,7 @@ h3.v-collapse-toggler:after{
 -------------*/
 footer{
 	font-weight:400;
+	color:$accent-color;
 	width:100%;
 	text-align:center;
 	margin:0 auto 2em;
@@ -418,9 +464,12 @@ footer{
 /*ToTop
 ---------------*/
 #totop{
-	color:$text-color;
+	color:$background-color;
+	fill:$background-color;
 	padding:6px 7px;
 	position:fixed;
+	width:44px;
+	height:44px;
 	bottom:3%;
 	right:2%;
 	z-index:999;
@@ -428,28 +477,19 @@ footer{
 	border:2px solid $accent-color;
 	background-color:$accent-color;
 	line-height:0;
+	box-shadow:0 3px 4px rgba(0,0,0,.2);
 	-webkit-transition:transform .3s ease,background .3s ease,color .3s ease;
 	   -moz-transition:transform .3s ease,background .3s ease,color .3s ease;
 			transition:transform .3s ease,background .3s ease,color .3s ease;
 }
-#totop:after{
-	content:"";
-	display:block;
-	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNmZmYiIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNNi4xMDEgMzU5LjI5M0wyNS45IDM3OS4wOTJjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwTDIyNCAxOTguMzkzbDE4MS4xMyAxODAuNjk4YzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMGwxOS43OTktMTkuNzk5YzQuNjg2LTQuNjg2IDQuNjg2LTEyLjI4NCAwLTE2Ljk3MUwyMzIuNDg1IDEzMi45MDhjLTQuNjg2LTQuNjg2LTEyLjI4NC00LjY4Ni0xNi45NzEgMEw2LjEwMSAzNDIuMzIyYy00LjY4NyA0LjY4Ny00LjY4NyAxMi4yODUgMCAxNi45NzF6Ii8+PC9zdmc+);
-	background-size:cover;
-	background-repeat:no-repeat;
-	background-position-y:-2px;
-	width:28px;
-	height:28px;
-}
 #totop:hover{
 	background-color:$background-color;
 	color:$accent-color;
+	fill:$accent-color;
 	-webkit-transform:scale(1.1);
 	   -moz-transform:scale(1.1);
 			transform:scale(1.1);
 }
-#totop:hover:after{background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiBmaWxsPSIjNDUyMjRkIj48cGF0aCBkPSJNNC40NjUgMzY2LjQ3NWw3LjA3IDcuMDcxYzQuNjg2IDQuNjg2IDEyLjI4NCA0LjY4NiAxNi45NzEgMEwyMjQgMTc4LjA1M2wxOTUuNDk0IDE5NS40OTNjNC42ODYgNC42ODYgMTIuMjg0IDQuNjg2IDE2Ljk3MSAwbDcuMDctNy4wNzFjNC42ODYtNC42ODYgNC42ODYtMTIuMjg0IDAtMTYuOTdsLTIxMS4wNS0yMTEuMDUxYy00LjY4Ni00LjY4Ni0xMi4yODQtNC42ODYtMTYuOTcxIDBMNC40NjUgMzQ5LjUwNWMtNC42ODcgNC42ODYtNC42ODcgMTIuMjg0IDAgMTYuOTd6Ii8+PC9zdmc+)}
 /*MediaQueries
 ------------------*/
 @media screen and(max-width:1200px){
@@ -474,13 +514,11 @@ footer{
 /*Links
 -------------*/
 a,a:visited{
-	color:$text-color;
+	color:$accent-color;
 	text-decoration:none;
-	-webkit-transition:all .3s ease;
-	   -moz-transition:all .3s ease;
-			transition:all .3s ease;
+	transition:all .3s ease;
 }
-a:active,a:hover{color:darken($text-color,10%)}
+a:active,a:hover{color:lighten($accent-color,10%)}
 /*Scrollbar
 -------------*/
 ::-webkit-scrollbar{width:12px;height:12px;background-color:rgba(0,0,0,.025)}
