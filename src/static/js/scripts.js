@@ -63,10 +63,8 @@ export default{
 		}
 	},
 	methods:{
-		//Check if the collapse field changed status
-		activateClass:function(vm){
-			this.form.classActive = vm.status;
-		},
+		//Give active class to toggled collapse elements
+		activateClass:function(event){event.target.parentElement.classList.toggle("active")},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){
 			for(var i in this.$refs){

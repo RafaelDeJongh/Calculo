@@ -88,42 +88,42 @@
 		<v-collapse-group>
 			<!--Site Types-->
 			<v-collapse-wrapper ref="siteInfo">
-				<h3 id="siteInfo" v-collapse-toggle>Site Types</h3>
+				<h3 id="siteInfo" v-collapse-toggle v-on:click="activateClass($event)">Site Types</h3>
 				<div v-collapse-content>
 					<siteTypesText></siteTypesText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Design Types-->
 			<v-collapse-wrapper ref="designInfo">
-				<h3 id="designInfo" v-collapse-toggle>Design Types</h3>
+				<h3 id="designInfo" v-collapse-toggle v-on:click="activateClass($event)">Design Types</h3>
 				<div v-collapse-content>
 					<designTypesText></designTypesText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Speed-->
 			<v-collapse-wrapper ref="speedInfo">
-				<h3 id="speedInfo" v-collapse-toggle>Build Speed</h3>
+				<h3 id="speedInfo" v-collapse-toggle v-on:click="activateClass($event)">Build Speed</h3>
 				<div v-collapse-content>
 					<buildSpeedText></buildSpeedText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Pages-->
 			<v-collapse-wrapper ref="pageInfo">
-				<h3 id="pageInfo" v-collapse-toggle>Amount of Pages</h3>
+				<h3 id="pageInfo" v-collapse-toggle v-on:click="activateClass($event)">Amount of Pages</h3>
 				<div v-collapse-content>
 					<amountOfPagesText></amountOfPagesText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Copywriting-->
 			<v-collapse-wrapper ref="copywritingInfo">
-				<h3 id="copywritingInfo" v-collapse-toggle>Copywriting</h3>
+				<h3 id="copywritingInfo" v-collapse-toggle v-on:click="activateClass($event)">Copywriting</h3>
 				<div v-collapse-content>
 					<copywritingText></copywritingText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Features-->
 			<v-collapse-wrapper ref="featuresInfo">
-				<h3 id="featuresInfo" v-collapse-toggle>Features</h3>
+				<h3 id="featuresInfo" v-collapse-toggle v-on:click="activateClass($event)">Features</h3>
 				<div v-collapse-content>
 					<featuresText></featuresText>
 				</div>
@@ -131,7 +131,7 @@
 			<!--E-Commerce Features-->
 			<transition name="fade">
 			<v-collapse-wrapper ref="eCommerceFeaturesInfo" v-if="form.sitetype == 'E-Commerce'">
-				<h3 id="eCommerceFeaturesInfo" v-collapse-toggle>E-Commerce Features</h3>
+				<h3 id="eCommerceFeaturesInfo" v-collapse-toggle v-on:click="activateClass($event)">E-Commerce Features</h3>
 				<div v-collapse-content>
 					<eCommerceFeaturesText></eCommerceFeaturesText>
 				</div>
@@ -140,7 +140,7 @@
 			<!--Custom Production Features-->
 			<transition name="fade">
 			<v-collapse-wrapper ref="customProductionFeaturesInfo" v-if="form.sitetype == 'Custom Production'">
-				<h3 id="customProductionFeaturesInfo" v-collapse-toggle>Custom Production Features</h3>
+				<h3 id="customProductionFeaturesInfo" v-collapse-toggle v-on:click="activateClass($event)">Custom Production Features</h3>
 				<div v-collapse-content>
 					<customProductionText></customProductionText>
 				</div>
@@ -148,14 +148,14 @@
 			</transition>
 			<!--External Cost-->
 			<v-collapse-wrapper ref="externalCostInfo">
-				<h3 id="externalCostInfo" v-collapse-toggle>External Costs</h3>
+				<h3 id="externalCostInfo" v-collapse-toggle v-on:click="activateClass($event)">External Costs</h3>
 				<div v-collapse-content>
 					<externalCostsText></externalCostsText>
 				</div>
 			</v-collapse-wrapper>
 			<!--Rates-->
-			<v-collapse-wrapper ref="ratesInfo" v-on:onStatusChange="activateClass" v-bind:class="{active:form.classActive}">
-				<h3 id="ratesInfo" v-collapse-toggle>Pricing &amp; Rates</h3>
+			<v-collapse-wrapper ref="ratesInfo">
+				<h3 id="ratesInfo" v-collapse-toggle v-on:click="activateClass($event)">Pricing &amp; Rates</h3>
 				<div v-collapse-content>
 					<ratesText></ratesText>
 				</div>

@@ -379,9 +379,10 @@ output{
 	background:darken($background-color,1%);
 	border-radius:.5em;
 	width:50%;
-	margin:3em auto
+	margin:3em auto;
+	padding-top:1em;
 }
-#price section{padding:2em 2em 1em}
+#price section{padding:1em 2em}
 p{
 	margin:1em 0;
 	line-height:1.4;
@@ -443,7 +444,6 @@ h3.v-collapse-toggler:after{
 	max-height:5000px;
 	transition:max-height .3s ease-in;
 }
-.v-collapse-content section{padding:.5rem 1.25rem;}
 /*Fade*/
 .fade-enter-active,.fade-leave-active{
 	transition:all .5s ease-in-out;
