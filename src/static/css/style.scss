@@ -18,51 +18,71 @@ body{
 	font-weight:400;
 	overflow-x:hidden
 }
+main{margin:auto}
 /*Header
 ------------------*/
 header{
+	position:sticky;
+	top:0;
+	z-index:2;
 	width:100%;
 	padding:.2em 0;
 	background:linear-gradient(rgba($accent-color,.9),rgba($accent-color,.9)),url(/static/images/Calculo-Code-Header.jpg);
 	background-size:cover;
-	background-position:50% 75%;
+	background-position:50% 66%;
 	box-shadow:0 2px 2px rgba(0,0,0,.2);
 	margin-bottom:2em;
 	text-align:center;
 	transition:all .3s ease-in-out;
 }
-header a{display:block;position:relative}
-header a div{
+header div{
+	width:55%;
+	min-width:1024px;
+	margin:auto;
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	position:relative
+}
+header div a{
 	position:relative;
 	display:inline-block;
-	width:400px
+	width:400px;
+	max-width:50%;
+	margin-left:-2.5em;
 }
-header a svg{
+header div a svg{
 	max-height:150px;
 	margin:auto;
 	padding:1em 0;
 	fill:$background-color
 }
-header a h1{
+header div a h1{
 	color:#fff;
 	position:absolute;
 	font-size:.6em;
 	left:15em;
 	bottom:3.6em;
 }
-/*Content
+/*Price Calculator
 -------------*/
-main{
-	margin:0 2em
-}
-section h1{
+#priceCalculator{
+	background:rgba($background-color,.8);
+	color:$accent-color;
+	border-radius:6px;
+	padding:.5em 2em 1.5em;
+	display:inline-block;
 	text-align:center;
-	margin-top:-140px;
-	padding:1em;
-	font-weight:500
+	box-shadow:inset 0 0 6px rgba($accent-color,.8);
 }
+#priceCalculator h2{font-size:1.6em}
+/*Siteresults
+-------------*/
 #siteresults{
-	width:50%;
+	width:55%;
+	min-width:1024px;
 	margin:auto
 }
 #siteresults ul{
@@ -81,25 +101,12 @@ section h1{
 	margin:2.5em auto;
 }
 .cl-stretch{width:50%;display:inline-block;box-sizing:border-box;}
-/*Price Calculator
--------------*/
-#priceCalculator{
-	position:fixed;
-	position:sticky;
-	top:40px;
-	background:$accent-color;
-	color:$text-color-inv;
-	width:20%;
-	border-radius:6px;
-	padding:1em 2em 2em;
-	display:inline-block;
-	text-align:center;
-}
 /*Forms
 -------------*/
 form.calcForm{
-	width:50%;
-	margin:-130px auto 0;
+	width:55%;
+	min-width:1024px;
+	margin:3.5em auto 2em;
 	-webkit-touch-callout:none;
 	  -webkit-user-select:none;
 		 -moz-user-select:none;
@@ -205,6 +212,7 @@ input[type="number"]::-webkit-inner-spin-button{
 }
 input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-webkit-inner-spin-button:active{opacity:.8}
 /*Checkboxes and Radio Buttons*/
+#copywriting{text-align:center}
 [type="checkbox"]:not(:checked),[type="checkbox"]:checked,[type="radio"]:not(:checked),[type="radio"]:checked{
 	position:absolute;
 	left:-9999px
@@ -257,7 +265,7 @@ input[type="number"]::-webkit-inner-spin-button:hover,input[type="number"]::-web
 	outline:0;
 	box-sizing:border-box
 }
-[type="radio"]+ label{margin-right:1.5em}
+[type="radio"]+ label{margin:.8em 1em}
 /*Range Slider*/
 input[type="range"]{
 	-webkit-appearance:none;
@@ -332,14 +340,14 @@ output{
 	display:inline-block;
 	position:absolute;
 	background:lighten($accent-color,8%);
-	box-shadow:0 2px 2px rgba(0,0,0,.3);
-	min-width:14vw;
+	box-shadow:0 2px 2px rgba($accent-color,.3);
+	min-width:16em;
 	width:auto;
 	color:$text-color-inv;
 	text-align:center;
 	margin:auto;
 	bottom:40px;
-	left:-6.5vw;
+	left:-7.5em;
 	right:0;
 	border-radius:5px;
 	padding:.5em 1em;
@@ -378,7 +386,8 @@ output{
 	color:#333;
 	background:darken($background-color,1%);
 	border-radius:.5em;
-	width:50%;
+	width:55%;
+	min-width:1024px;
 	margin:3em auto;
 	padding-top:1em;
 }
@@ -390,7 +399,8 @@ p{
 #price h2{
 	font-weight:500;
 	text-align:center;
-	margin:.5em auto 1em
+	margin:.5em auto 1em;
+	line-height:1.2;
 }
 #price h3{
 	font-weight:500;
@@ -403,20 +413,21 @@ p{
 /*Accordion*/
 .v-collapse-group{
 	background-color:rgba(255,255,255,.6);
-	box-shadow:0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+	box-shadow:0 2px 3px rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.1);
 	max-width:100%;
 	position:relative;
 	border-radius:6px;
 }
 .v-collapse-group .vc-collapse:first-child h3.v-collapse-toggler{border-top-left-radius:6px;border-top-right-radius:6px}
 .v-collapse-group .vc-collapse:last-child h3.v-collapse-toggler{border-bottom-right-radius:6px;border-bottom-left-radius:6px}
+.v-collapse-group .vc-collapse.active:last-child h3.v-collapse-toggler{border-radius:0}
 h3.v-collapse-toggler{
 	cursor:pointer;
 	padding:.75rem 1.25rem;
 	background-color:rgba(0,0,0,.05);
-	border-top:1px solid rgba($accent-color,.125);
-	border-bottom:1px solid rgba($accent-color,.125);
-	box-shadow:0 1px 2px rgba(10,10,10,.1);
+	/*border-top:1px solid rgba($accent-color,.125);
+	border-bottom:1px solid rgba($accent-color,.125);*/
+	box-shadow:0 1px 1px rgba(10,10,10,.1);
 	transition:all .3s ease
 }
 .active h3.v-collapse-toggler, h3.v-collapse-toggler:hover{
@@ -462,6 +473,7 @@ footer{
 	width:100%;
 	text-align:center;
 	margin:0 auto 2.5em;
+	padding:0 1em;
 }
 /*ToTop
 ---------------*/
@@ -494,25 +506,62 @@ footer{
 }
 /*MediaQueries
 ------------------*/
-@media screen and(max-width:1200px){
-	#price{width:90%}
+@media screen and(max-width:1300px){
+	header div,#siteresults,form.calcForm,#price{
+		width:90%;
+		min-width:unset
+	}
 }
-@media screen and(max-width:1024px){
-	section h1{margin:1em auto 0}
+@media screen and(max-width:1024px) and (orientation:portrait){
+	header div{
+		justify-content:center;
+		width:100%;
+		min-width:unset
+	}
 	#priceCalculator{
-		width:calc(100% + 4em);
+		width:100%;
 		z-index:9;
-		top:0;
-		margin:-32px 0 0 -2em;
 		border-radius:0;
 		box-shadow:0 2px 2px rgba(0,0,0,.2);
 	}
-	form.calcForm,#siteresults{width:80%;margin:auto}
+}
+@media screen and(max-width:768px) and (orientation:landscape){
+	header div a{margin-left:-1.5em}
 }
 @media screen and(max-width:768px){
+	header div a h1{display:none}
+	.cl{flex-direction:column;align-items:center}
 	#price,form.calcForm,#siteresults{width:100%}
+	form.calcForm{
+		margin:auto;
+		padding:0 2em;
+	}
+	.calcForm li{padding-right:1em}
+	[tooltip-info]:after{
+		min-width:14em;
+		left:-6.5em;
+	}
 }
-@media screen and(max-width:500px){}
+@media screen and(max-width:580px) and (orientation:landscape){
+	header div{
+		justify-content:center;
+		width:100%;
+		min-width:unset
+	}
+	#priceCalculator{
+		width:100%;
+		z-index:9;
+		border-radius:0;
+		box-shadow:0 2px 2px rgba(0,0,0,.2);
+	}
+}
+@media screen and(max-width:500px){
+	.info-circle,[tooltip-info]{display:none}
+	ul.features{flex-direction:column;align-items:center}
+	ul.features li{width:100%}
+	[tooltip-info]:after{min-width:160px;left:-26vw}
+	#price h3{font-size:1.4em}
+}
 /*Links
 -------------*/
 a,a:visited{
