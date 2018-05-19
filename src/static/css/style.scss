@@ -23,7 +23,7 @@ body{
 header{
 	width:100%;
 	padding:.2em 0;
-	background:linear-gradient(rgba($accent-color,.9),rgba($accent-color,.9)),url(/static/images/Calculo-Code-Header.jpg);
+	background:linear-gradient(rgba($accent-color,.9),rgba($accent-color,.9)),url(../images/Calculo-Code-Header.jpg);
 	background-size:cover;
 	background-position:50% 75%;
 	box-shadow:0 2px 2px rgba(0,0,0,.2);
@@ -418,7 +418,7 @@ h3.v-collapse-toggler{
 	box-shadow:0 1px 2px rgba(10,10,10,.1);
 	transition:all .3s ease
 }
-h3.v-collapse-toggler:hover{
+.active h3.v-collapse-toggler, h3.v-collapse-toggler:hover{
 	background-color:$accent-color;
 	color:$text-color-inv;
 }
@@ -429,8 +429,10 @@ h3.v-collapse-toggler:after{
 	height:25px;
 	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjNDUyMjRkIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+);
 	float:right;
+	transition:all .3s ease
 }
-h3.v-collapse-toggler:hover:after{background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+)}
+.active h3.v-collapse-toggler:after,h3.v-collapse-toggler:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+)}
+.active h3.v-collapse-toggler:after{transform:rotate(180deg)}
 .v-collapse-content{
 	max-height:0;
 	overflow:hidden;

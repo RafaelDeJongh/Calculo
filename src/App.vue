@@ -69,7 +69,7 @@
 					</transition>
 					<transition name="fade">
 						<ul id="customFeatures" class="features" v-if="form.sitetype == 'Custom Production'">
-							<li v-for="option in options.customFeatures"><input class="customFeatures" name="customFeatures" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.customFeatures"><label v-bind:for="option.id">{{option.text}}</label>  <a v-bind:href="'#info-'+option.id" v-on:click="alwaysOpen" v-scroll-to="'#info-'+option.id" v-collapse-toggle="'customProductionFeaturesInfo'" v-bind:tooltip-info="option.tooltipInfo"><i class="info-circle"></i></a></li>
+							<li v-for="option in options.customFeatures"><input class="customFeatures" name="customFeatures" type="checkbox" v-bind:id="option.id" v-bind:value="option.text" v-model="form.customFeatures"><label v-bind:for="option.id">{{option.text}}</label> <a v-bind:href="'#info-'+option.id" v-on:click="alwaysOpen" v-scroll-to="'#info-'+option.id" v-collapse-toggle="'customProductionFeaturesInfo'" v-bind:tooltip-info="option.tooltipInfo"><i class="info-circle"></i></a></li>
 						</ul>
 					</transition>
 				</ul>
@@ -130,7 +130,7 @@
 			</v-collapse-wrapper>
 			<!--E-Commerce Features-->
 			<transition name="fade">
-			<v-collapse-wrapper ref="featuresInfo" v-if="form.sitetype == 'E-Commerce'">
+			<v-collapse-wrapper ref="eCommerceFeaturesInfo" v-if="form.sitetype == 'E-Commerce'">
 				<h3 id="eCommerceFeaturesInfo" v-collapse-toggle>E-Commerce Features</h3>
 				<div v-collapse-content>
 					<eCommerceFeaturesText></eCommerceFeaturesText>
@@ -139,7 +139,7 @@
 			</transition>
 			<!--Custom Production Features-->
 			<transition name="fade">
-			<v-collapse-wrapper ref="featuresInfo" v-if="form.sitetype == 'Custom Production'">
+			<v-collapse-wrapper ref="customProductionFeaturesInfo" v-if="form.sitetype == 'Custom Production'">
 				<h3 id="customProductionFeaturesInfo" v-collapse-toggle>Custom Production Features</h3>
 				<div v-collapse-content>
 					<customProductionText></customProductionText>
@@ -154,8 +154,8 @@
 				</div>
 			</v-collapse-wrapper>
 			<!--Rates-->
-			<v-collapse-wrapper ref="externalCostInfo">
-				<h3 id="externalCostInfo" v-collapse-toggle>Pricing &amp; Rates</h3>
+			<v-collapse-wrapper ref="ratesInfo" v-on:onStatusChange="activateClass" v-bind:class="{active:form.classActive}">
+				<h3 id="ratesInfo" v-collapse-toggle>Pricing &amp; Rates</h3>
 				<div v-collapse-content>
 					<ratesText></ratesText>
 				</div>

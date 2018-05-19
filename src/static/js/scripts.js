@@ -13,7 +13,8 @@ export default{
 				features:[],
 				eCommerceFeatures:[],
 				customFeatures:[],
-				configuration:false
+				configuration:false,
+				classActive:false
 			},
 			options:{
 				sitetype:[
@@ -62,8 +63,9 @@ export default{
 		}
 	},
 	methods:{
+		//Check if the collapse field changed status
 		activateClass:function(vm){
-			/*console.log(markDownComponent);*/
+			this.form.classActive = vm.status;
 		},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){
