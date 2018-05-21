@@ -32,7 +32,7 @@ For proper mailing you need a proper configuration to make your custom domain ma
 
 If you want to have a visual appealing website an image or slider gallery is a perfect choice, with these you can present your photographs in a beautiful way and also very easily to use for your visitors.
 
-#### PageBuilder Intergration <a id="info-pagebuilder"></a>
+#### PageBuilder Integration <a id="info-pagebuilder"></a>
 
 These days a lot of editing is being done with popular PageBuilders for site and in particular WordPress. However, some theme’s do not support PageBuilder and with this we want to properly configure the PageBuilder to work with your theme.
 
@@ -40,10 +40,10 @@ These days a lot of editing is being done with popular PageBuilders for site and
 
 Most if not all sites would like a contact form, sometimes this is an easy three field layout to just send a contact mail directly from your site, however this is not always the case as you can also properly customise your form to be dynamic and conditional if you require it for something more than a contact form.
 
-#### Multilingual Intergration <a id="info-multilingual"></a>
+#### Multilingual Integration <a id="info-multilingual"></a>
 
 Some sites require Multilingual support, and this can be done with via a range of options but is not always as easy just installing a plugin. Proper configuration is therefore required together with support of the theme to properly translate all the strings for it. With this feature we want to make the theme as well as the content fully multilingual in whatever language you desire.
 
-#### Offsite Backup Intergration <a id="info-backup"></a>
+#### Offsite Backup Integration <a id="info-backup"></a>
 
-It is always important to backup your website, in cases that you did something wrong, or updated a plugin or a core file that made the site go down. With this you can easily revert those changes and we will make it possible for you to store these backups locally on the server itself or on a cloudstorage like Google Drive, DropBox, One Drive and many more! The desired amount of backups can be configured on basis of how active your site is. It can backup from every four hours to a one time a month, and you can even say how many backups have to be preserved so it will automatically remove old and unneeded backups to make room for new ones.
+It is always important to backup your website, in cases that you did something wrong, or updated a plugin or a core file that made the site go down. With this you can easily revert those changes and we will make it possible for you to store these backups locally on the server itself or on a cloud storage like Google Drive, DropBox, One Drive and many more! The desired amount of backups can be configured on basis of how active your site is. It can backup from every four hours to a one time a month, and you can even say how many backups have to be preserved so it will automatically remove old and unneeded backups to make room for new ones.

@@ -481,16 +481,11 @@ footer{
 	color:$background-color;
 	fill:$background-color;
 	padding:6px 7px;
-	position:fixed;
 	width:44px;
 	height:44px;
-	bottom:3%;
-	right:2%;
-	z-index:999;
 	border-radius:5em;
 	border:2px solid $accent-color;
 	background-color:$accent-color;
-	line-height:0;
 	box-shadow:0 3px 4px rgba(0,0,0,.2);
 	-webkit-transition:transform .3s ease,background .3s ease,color .3s ease;
 	   -moz-transition:transform .3s ease,background .3s ease,color .3s ease;
@@ -525,12 +520,17 @@ footer{
 		box-shadow:0 2px 2px rgba(0,0,0,.2);
 	}
 }
-@media screen and(max-width:768px) and (orientation:landscape){
-	header div a{margin-left:-1.5em}
-}
 @media screen and(max-width:768px){
+	header div a{margin:auto}
 	header div a h1{display:none}
-	.cl{flex-direction:column;align-items:center}
+	.cl{
+		flex-direction:column;
+		align-items:center;
+		width:49%;
+		display:inline-flex;
+		margin:0 auto 1em
+	}
+	#pages{text-align:center}
 	#price,form.calcForm,#siteresults{width:100%}
 	form.calcForm{
 		margin:auto;
@@ -541,6 +541,25 @@ footer{
 		min-width:14em;
 		left:-6.5em;
 	}
+}
+@media screen and(max-width:768px) and (orientation:landscape){
+	header div a{margin-left:-1.5em}
+	form.calcForm{width:90%}
+}
+@media screen and(max-width:600px){
+	.cl{
+		flex-direction:column;
+		align-items:center;
+		width:100%;
+		display:flex;
+	}
+}
+@media screen and(max-width:500px){
+	.info-circle,[tooltip-info]{display:none}
+	ul.features{flex-direction:column;align-items:center}
+	ul.features li{width:100%}
+	[tooltip-info]:after{min-width:160px;left:-26vw}
+	#price h3{font-size:1.4em}
 }
 @media screen and(max-width:580px) and (orientation:landscape){
 	header div{
@@ -554,13 +573,6 @@ footer{
 		border-radius:0;
 		box-shadow:0 2px 2px rgba(0,0,0,.2);
 	}
-}
-@media screen and(max-width:500px){
-	.info-circle,[tooltip-info]{display:none}
-	ul.features{flex-direction:column;align-items:center}
-	ul.features li{width:100%}
-	[tooltip-info]:after{min-width:160px;left:-26vw}
-	#price h3{font-size:1.4em}
 }
 /*Links
 -------------*/

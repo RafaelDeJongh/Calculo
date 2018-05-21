@@ -47,7 +47,7 @@
 			</div>
 			<!--Amount of Pages-->
 			<div class="cl">
-				<div>
+				<div id="pages">
 					<label for="amountPages">Page amount: <a href="#pageInfo" v-on:click="alwaysOpen" v-scroll-to="'#pageInfo'" v-collapse-toggle="'pageInfo'" tooltip-info="Info about how much pages you require."><i class="info-circle"></i></a></label>
 					<input id="amountPages" name="amountPages" type="number" value="1" min="1" max="250" v-model="form.pages">
 				</div>
@@ -164,7 +164,7 @@
 		</section>
 	</main>
 	<footer id="copyright">Copyright &copy; {{new Date().getFullYear()}} &ndash; Calculo &ndash; Developed by <a href="https://www.rafaeldejongh.com" target="_blank">RafaelDeJongh.com</a> &ndash; All Rights Reserved.</footer>
-	<back-to-top visibleoffset="250"><svg id="totop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M6.101 359.293L25.9 379.092c4.686 4.686 12.284 4.686 16.971 0L224 198.393l181.13 180.698c4.686 4.686 12.284 4.686 16.971 0l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L232.485 132.908c-4.686-4.686-12.284-4.686-16.971 0L6.101 342.322c-4.687 4.687-4.687 12.285 0 16.971z"/></svg></back-to-top>
+	<back-to-top visibleoffset="250" bottom="3%" right="2%"><svg id="totop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M6.101 359.293L25.9 379.092c4.686 4.686 12.284 4.686 16.971 0L224 198.393l181.13 180.698c4.686 4.686 12.284 4.686 16.971 0l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L232.485 132.908c-4.686-4.686-12.284-4.686-16.971 0L6.101 342.322c-4.687 4.687-4.687 12.285 0 16.971z"/></svg></back-to-top>
 </div>
 </template>
 <script src="./static/js/scripts.js"></script>

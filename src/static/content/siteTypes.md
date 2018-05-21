@@ -4,7 +4,7 @@ Here we have three categories for the site types:
 
 A standard website is what most people would need, this can range from a portfolio website to a small business one pager or landing page. These kinds of websites can easily range from €800 to €2000 excl. VAT.
 
-The price can vary depending on the various features you select, but as an starting point it is what most clients will need.
+The price can vary depending on the various features you select, but as a starting point it is what most clients will need.
 
 #### E-Commerce
 

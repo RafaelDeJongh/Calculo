@@ -40,24 +40,24 @@ export default{
 					{id:"server",      price:{low:300,high:600}, text:"Server/Webhost Setup",tooltipInfo:"Info about Server/Webhost Setup"},
 					{id:"mail",        price:{low:150,high:200}, text:"Mail Setup",tooltipInfo:"Info about the Mail Setup"},
 					{id:"gallery",     price:{low:100,high:300}, text:"Image/Sliders Gallery",tooltipInfo:"Info about Image & Slider Galleries"},
-					{id:"pagebuilder", price:{low:200,high:400}, text:"PageBuilder Intergration",tooltipInfo:"Info about Pagebuilders"},
+					{id:"pagebuilder", price:{low:200,high:400}, text:"PageBuilder Integration",tooltipInfo:"Info about Pagebuilders"},
 					{id:"contactform", price:{low:100,high:300}, text:"Contact Form",tooltipInfo:"Info about Contact Forms"},
-					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Intergration",tooltipInfo:"Info about Multilanguage"},
-					{id:"backup",      price:{low:250,high:500}, text:"Offsite Backup Intergration",tooltipInfo:"Info about Offsite Backup"}
+					{id:"multilingual",price:{low:500,high:1000},text:"Multilingual Integration",tooltipInfo:"Info about Multilanguage"},
+					{id:"backup",      price:{low:250,high:500}, text:"Offsite Backup Integration",tooltipInfo:"Info about Offsite Backup"}
 				],
 				eCommerceFeatures:[
-					{id:"pgw",         price:{low:300,high:600}, text:"Payment Gateway Intergration",tooltipInfo:"Info about Payment Gateways"},
-					{id:"social",      price:{low:400,high:800}, text:"Social Login Intergration",tooltipInfo:"Info about Social Login"},
-					{id:"livesearch",  price:{low:300,high:600}, text:"Live Search Intergration",tooltipInfo:"Info about Live Search"},
-					{id:"livechat",    price:{low:600,high:1200},text:"Live Chat Intergration",tooltipInfo:"Info about Live Chat"},
+					{id:"pgw",         price:{low:300,high:600}, text:"Payment Gateway Integration",tooltipInfo:"Info about Payment Gateways"},
+					{id:"social",      price:{low:400,high:800}, text:"Social Login Integration",tooltipInfo:"Info about Social Login"},
+					{id:"livesearch",  price:{low:300,high:600}, text:"Live Search Integration",tooltipInfo:"Info about Live Search"},
+					{id:"livechat",    price:{low:600,high:1200},text:"Live Chat Integration",tooltipInfo:"Info about Live Chat"},
 					{id:"catalog",     price:{low:500,high:1000},text:"Catalog Mode",tooltipInfo:"Info about Catalog Mode"},
 					{id:"pos",         price:{low:800,high:2500},text:"Point Of Sale (POS)",tooltipInfo:"Info about POS Systems"},
 				],
 				customFeatures:[
 					{id:"crm",          price:{low:1500,high:3500}, text:"Customer Relationship Management (CRM)",tooltipInfo:"Info about CRM"},
-					{id:"invoice",      price:{low:1000,high:3000}, text:"Invoicing and Accounting Intergration",tooltipInfo:"Info about Invoicing and Accounting"},
-					{id:"mailMarketing",price:{low:2000,high:4000}, text:"Email Marketing Intergration",tooltipInfo:"Info about Email Marketing"},
-					{id:"helpdesk",     price:{low:2500,high:5000}, text:"Helpdesk Intergration",tooltipInfo:"Info about Helpdesks"},
+					{id:"invoice",      price:{low:1000,high:3000}, text:"Invoicing and Accounting Integration",tooltipInfo:"Info about Invoicing and Accounting"},
+					{id:"mailMarketing",price:{low:2000,high:4000}, text:"Email Marketing Integration",tooltipInfo:"Info about Email Marketing"},
+					{id:"helpdesk",     price:{low:2500,high:5000}, text:"Helpdesk Integration",tooltipInfo:"Info about Helpdesks"},
 				],
 			}
 		}
