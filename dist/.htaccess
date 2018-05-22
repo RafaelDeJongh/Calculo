@@ -1,7 +1,7 @@
-# Enable PHP7
+#Enable PHP7
 AddHandler application/x-httpd-php70 .php
 
-# Security Headers
+#Security Headers
 <IfModule mod_headers.c>
 Header set Developed-By "Rafael De Jongh"
 Header set Content-Security-Policy "img-src 'self' https: data: blob:; font-src 'self' https: data:;"
@@ -36,11 +36,11 @@ ErrorDocument 404 /index.html
 		satisfy all
 	</files>
 
-###### General Optimisation ######
+######General Optimisation######
 
-# Use UTF-8 encoding for anything served text/plain or text/html
+#Use UTF-8 encoding for anything served text/plain or text/html
 	AddDefaultCharset UTF-8
-# Force UTF-8 for a number of file formats
+#Force UTF-8 for a number of file formats
 <IfModule mod_mime.c>
 	AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
 </IfModule>
@@ -48,15 +48,15 @@ ErrorDocument 404 /index.html
 #Set default language
 DefaultLanguage en-GB
 
-# FileETag None is not enough for every server.
+#FileETag None is not enough for every server.
 <IfModule mod_headers.c>
 	Header unset ETag
 </IfModule>
 
-# developer.yahoo.com/performance/rules.html#etags
+#developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
-# Send CORS headers if browsers request them.
+#Send CORS headers if browsers request them.
 <IfModule mod_setenvif.c>
 	<IfModule mod_headers.c>
 		<FilesMatch "\.(cur|gif|png|jpe?g|svgz?|ico|webp|eot|otf|ttc|ttf|woff|woff2)$">
@@ -66,7 +66,7 @@ FileETag None
 	</IfModule>
 </IfModule>
 
-# Allow access to web fonts from all domains.
+#Allow access to web fonts from all domains.
 <FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
 	<IfModule mod_headers.c>
 		Header set Access-Control-Allow-Origin "*"
@@ -90,32 +90,32 @@ FileETag None
 	</FilesMatch>
 </IfModule>
 
-# Expires headers
+#Expires headers
 <IfModule mod_expires.c>
 ExpiresActive on
 
-# Whitelist expires rules.
+#Whitelist expires rules.
 ExpiresDefault                          "access plus 1 month"
 
-# cache.appcache needs re-requests in FF 3.6
+#cache.appcache needs re-requests in FF 3.6
 ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
-# Your document html
+#Your document html
 ExpiresByType text/html                 "access plus 0 seconds"
 
-# Data
+#Data
 ExpiresByType text/xml                  "access plus 0 seconds"
 ExpiresByType application/xml           "access plus 0 seconds"
 ExpiresByType application/json          "access plus 0 seconds"
 
-# Web Feed
+#Web Feed
 ExpiresByType application/rss+xml       "access plus 1 hour"
 ExpiresByType application/atom+xml      "access plus 1 hour"
 
-# Favicon
+#Favicon
 ExpiresByType image/x-icon              "access plus 1 week"
 
-# Media: images, video, audio
+#Media: images, video, audio
 ExpiresByType image/gif                 "access plus 1 month"
 ExpiresByType image/png                 "access plus 1 month"
 ExpiresByType image/jpeg                "access plus 1 month"
@@ -124,10 +124,10 @@ ExpiresByType audio/ogg                 "access plus 1 month"
 ExpiresByType video/mp4                 "access plus 1 month"
 ExpiresByType video/webm                "access plus 1 month"
 
-# HTC files
+#HTC files
 ExpiresByType text/x-component          "access plus 1 month"
 
-# Webfonts
+#Webfonts
 ExpiresByType application/x-font-ttf    "access plus 1 month"
 ExpiresByType font/opentype             "access plus 1 month"
 ExpiresByType application/x-font-woff   "access plus 1 month"
@@ -135,27 +135,27 @@ ExpiresByType application/x-font-woff2  "access plus 1 month"
 ExpiresByType image/svg+xml             "access plus 1 month"
 ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 
-# CSS and JavaScript
+#CSS and JavaScript
 ExpiresByType text/css                  "access plus 1 year"
 ExpiresByType application/javascript    "access plus 1 year"
 </IfModule>
 
-# Gzip compression
+#Gzip compression
 <IfModule mod_deflate.c>
-	# Active compression
+	#Active compression
 		SetOutputFilter DEFLATE
-	# Force deflate for mangled headers
+	#Force deflate for mangled headers
 	<IfModule mod_setenvif.c>
 		<IfModule mod_headers.c>
 				SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
 				RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-			# Don’t compress images and other uncompressible content
+			#Don’t compress images and other uncompressible content
 				SetEnvIfNoCase Request_URI \
 				\.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|mp3|avi|swf|mp?g|mp4|webm|webp|pdf)$ no-gzip dont-vary
 		</IfModule>
 	</IfModule>
 
-# Compress all output with the following MIME-types
+#Compress all output with the following MIME-types
 	<IfModule mod_filter.c>
 		AddOutputFilterByType DEFLATE application/atom+xml \ application/javascript \ application/json \ application/rss+xml \ application/vnd.ms-fontobject \ application/x-font-ttf \ application/xhtml+xml \ application/xml \ font/opentype \ image/svg+xml \ image/x-icon \ text/css \ text/html \ text/plain \ text/x-component \ text/xml
 	</IfModule>

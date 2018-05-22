@@ -80,11 +80,23 @@ export default{
 				var otherPrice = 0;
 				for(var option in this.options){
 					if("features" == option || "eCommerceFeatures" == option || "customFeatures" == option){
-						var featuresPrice = this.form[option].reduce((total,current)=>{
-							var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
-							optionFeatures.forEach(check=>{otherPrice += isMin ? check.price.low : check.price.high;});
-							return otherPrice;
-						},0);
+						var currentType;
+						switch(this.form.sitetype){
+							case "E-Commerce":
+								currentType = "eCommerceFeatures";
+								break;
+							case "Custom Production":
+								currentType = "customFeatures";
+								break;
+							default:currentType = "features";
+						}
+						if(currentType == option || option == "features"){
+							var featuresPrice = this.form[option].reduce((total,current)=>{
+								var optionFeatures = this.options[option].filter(featureCheck => featureCheck.text == current);
+								optionFeatures.forEach(check=>{otherPrice += isMin ? check.price.low : check.price.high;});
+								return otherPrice;
+							},0);
+						}
 					}else{
 					//Calculate Options
 						for(var index in this.options[option]){
