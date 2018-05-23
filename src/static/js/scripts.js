@@ -64,7 +64,13 @@ export default{
 	},
 	methods:{
 		//Give active class to toggled collapse elements
-		activateClass:function(event){event.target.parentElement.classList.toggle("active")},
+		activeClass:function(e){
+			if(true == e.status){
+				return e.vm.nodes.toggle.className = "v-collapse-toggler active";
+			}else{
+				return e.vm.nodes.toggle.className = "v-collapse-toggler";
+			}
+		},
 		//Keep the accordion from closing on double toggle
 		alwaysOpen:function(){
 			for(var i in this.$refs){

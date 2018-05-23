@@ -420,7 +420,7 @@ p{
 }
 .v-collapse-group .vc-collapse:first-child h3.v-collapse-toggler{border-top-left-radius:6px;border-top-right-radius:6px}
 .v-collapse-group .vc-collapse:last-child h3.v-collapse-toggler{border-bottom-right-radius:6px;border-bottom-left-radius:6px}
-.v-collapse-group .vc-collapse.active:last-child h3.v-collapse-toggler{border-radius:0}
+.v-collapse-group .vc-collapse:last-child h3.v-collapse-toggler.active{border-radius:0}
 h3.v-collapse-toggler{
 	cursor:pointer;
 	padding:.75rem 1.25rem;
@@ -430,10 +430,11 @@ h3.v-collapse-toggler{
 	box-shadow:0 1px 1px rgba(10,10,10,.1);
 	transition:all .3s ease
 }
-.active h3.v-collapse-toggler, h3.v-collapse-toggler:hover{
+h3.v-collapse-toggler.active, h3.v-collapse-toggler:hover{
 	background-color:$accent-color;
 	color:$text-color-inv;
 }
+h3.v-collapse-toggler.active:hover{background-color:lighten($accent-color,8%)}
 h3.v-collapse-toggler:after{
 	content:"";
 	display:block;
@@ -443,8 +444,8 @@ h3.v-collapse-toggler:after{
 	float:right;
 	transition:all .3s ease
 }
-.active h3.v-collapse-toggler:after,h3.v-collapse-toggler:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+)}
-.active h3.v-collapse-toggler:after{transform:rotate(180deg)}
+h3.v-collapse-toggler.active:after,h3.v-collapse-toggler:hover:after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTQzIDM1Mi4zTDcgMjE2LjNjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDIyLjYtMjIuNmM5LjQtOS40IDI0LjYtOS40IDMzLjkgMGw5Ni40IDk2LjQgOTYuNC05Ni40YzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDIyLjYgMjIuNmM5LjQgOS40IDkuNCAyNC42IDAgMzMuOWwtMTM2IDEzNmMtOS4yIDkuNC0yNC40IDkuNC0zMy44IDB6Ii8+PC9zdmc+)}
+h3.v-collapse-toggler.active:after{transform:rotate(180deg)}
 .v-collapse-content{
 	max-height:0;
 	overflow:hidden;
