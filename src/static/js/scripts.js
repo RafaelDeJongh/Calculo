@@ -23,8 +23,10 @@ export default{
 					{text:"Custom Production",price:{low:4000,high:6000}}
 				],
 				designChoices:[
-					{text:"Template",     price:{low:200, high:500}},
-					{text:"Custom Design",price:{low:1000,high:2000}}
+					{text:"Template",         price:{low:200, high:500}},
+					{text:"Premium Template", price:{low:350, high:700}},
+					{text:"Modified Template",price:{low:500, high:1000}},
+					{text:"Custom Template",  price:{low:1000,high:3000}}
 				],
 				speed:[
 					{text:"Less than 1 month",   price:{low:1500,high:2500}},

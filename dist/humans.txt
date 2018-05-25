@@ -19,16 +19,22 @@
 	From:Alicante, Spain
 
 /* THANKS */
-	Inspiration & Graphical Feedback:Siu Soan
-	Site:www.siusoan.com
-	LinkedIn:in/siumeisoan
-	
 	Graphical Feedback:Johannes De Jongh
 	Site:www.johannesdejongh.com
 	Company:www.sandhillsstudio.be
 	
+	UI/UX & Graphical Feedback:Siu Soan
+	Site:www.siusoan.com
+	LinkedIn:in/siumeisoan
+	
 	Design Feedback:Jochem Maes
 	LinkedIn:in/jochem-maes
+	
+	General Feedback: Scizo Khemdy
+	Facebook:fb.me/pyroscizo
+	
+	Gramatical Feedback: Evelyne Van Esbroeck
+	Site:www.evelynevanesbroeck.com
 
 	Code Feedback:Sif
 
