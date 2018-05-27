@@ -18,7 +18,7 @@
 			<div class="cl">
 				<!--Type of Site-->
 				<div>
-					<label for="sitetype">Your type of site: <a href="#siteInfo" v-on:click="alwaysOpen" v-scroll-to="'#siteInfo'" v-collapse-toggle="'siteInfo'" tooltip-info="Info about type of site."><i class="info-circle"></i></a></label>
+					<label for="sitetype">Your type of site: <a href="#siteInfo" v-on:click="alwaysOpen" v-scroll-to="'#siteInfo'" v-collapse-toggle="'siteInfo'" tooltip-info="Info about the different type of sites."><i class="info-circle"></i></a></label>
 					<div class="selectbox">
 						<select id="sitetype" name="sitetype" v-model="form.sitetype">
 							<option v-for="option in options.sitetype" v-bind:value="option.text">{{option.text}}</option>
@@ -37,7 +37,7 @@
 				</div>
 				<!--Development Speed-->
 				<div>
-					<label for="speed">How fast do you need it? <a href="#speedInfo" v-on:click="alwaysOpen" v-scroll-to="'#speedInfo'" v-collapse-toggle="'speedInfo'" tooltip-info="Info about how fast you want the website to be made."><i class="info-circle"></i></a></label>
+					<label for="speed">How fast do you need it? <a href="#speedInfo" v-on:click="alwaysOpen" v-scroll-to="'#speedInfo'" v-collapse-toggle="'speedInfo'" class="tooltip-right" tooltip-info="Info about the development speed."><i class="info-circle"></i></a></label>
 					<div class="selectbox">
 					<select id="speed" name="speed" v-model="form.speed">
 						<option v-for="option in options.speed" v-bind:value="option.text">{{option.text}}</option>
@@ -53,7 +53,7 @@
 				</div>
 				<!--CopyWriting-->
 				<div id="copywriting">
-					<label>Do you need copywriting? <a href="#copywritingInfo" v-on:click="alwaysOpen" v-scroll-to="'#copywritingInfo'" v-collapse-toggle="'copywritingInfo'" tooltip-info="Info about if you require your pages to be copyrighted."><i class="info-circle"></i></a></label>
+					<label>Do you need copywriting? <a href="#copywritingInfo" v-on:click="alwaysOpen" v-scroll-to="'#copywritingInfo'" v-collapse-toggle="'pageInfo'" class="tooltip-right" tooltip-info="Info about if you require your pages to be copyrighted."><i class="info-circle"></i></a></label>
 					<input name="copywriting" type="radio" id="copywrite-yes" value="Yes" v-model="form.copywriting"><label for="copywrite-yes">Yes</label>
 					<input name="copywriting" type="radio" id="copywrite-no" value="No" v-model="form.copywriting"><label for="copywrite-no">No</label>
 				</div>
@@ -110,16 +110,9 @@
 			</v-collapse-wrapper>
 			<!--Pages-->
 			<v-collapse-wrapper ref="pageInfo" v-on:onStatusChange="activeClass">
-				<h3 id="pageInfo" v-collapse-toggle>Amount of Pages</h3>
+				<h3 id="pageInfo" v-collapse-toggle>Pages &amp; Copywriting</h3>
 				<div v-collapse-content>
 					<amountOfPagesText></amountOfPagesText>
-				</div>
-			</v-collapse-wrapper>
-			<!--Copywriting-->
-			<v-collapse-wrapper ref="copywritingInfo" v-on:onStatusChange="activeClass">
-				<h3 id="copywritingInfo" v-collapse-toggle>Copywriting</h3>
-				<div v-collapse-content>
-					<copywritingText></copywritingText v-on:onStatusChange="activeClass">
 				</div>
 			</v-collapse-wrapper>
 			<!--Features-->
@@ -159,6 +152,13 @@
 				<h3 id="ratesInfo" v-collapse-toggle>Pricing &amp; Rates</h3>
 				<div v-collapse-content>
 					<ratesText></ratesText>
+				</div>
+			</v-collapse-wrapper>
+			<!--Why WordPress-->
+			<v-collapse-wrapper ref="WordPressInfo" v-on:onStatusChange="activeClass">
+				<h3 id="WordPressInfo" v-collapse-toggle>Why WordPress?</h3>
+				<div v-collapse-content>
+					<WordPressText></WordPressText>
 				</div>
 			</v-collapse-wrapper>
 		</v-collapse-group>
