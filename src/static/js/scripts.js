@@ -74,10 +74,13 @@ export default{
 			}
 		},
 		//Keep the accordion from closing on double toggle
+		isEmpty(obj){for(var prop in obj){if(obj.hasOwnProperty(prop)) return false;}return true;},
 		alwaysOpen:function(){
 			for(var i in this.$refs){
-				if(true == this.$refs[i].status){
-					this.$refs[i].close();
+				if(!this.isEmpty(this.$refs[i])){
+					if(true == this.$refs[i].status){
+						this.$refs[i].close();
+					}
 				}
 			}
 		},
