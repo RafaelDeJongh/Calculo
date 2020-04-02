@@ -3,15 +3,33 @@ AddHandler application/x-httpd-php70 .php
 
 #Security Headers
 <IfModule mod_headers.c>
-Header set Developed-By "Rafael De Jongh"
-Header set Content-Security-Policy "img-src 'self' https: data: blob:; font-src 'self' https: data:;"
-Header set X-Frame-Options "SAMEORIGIN"
-Header set X-XSS-Protection "1; mode=block"
-Header set Referrer-Policy "no-referrer-when-downgrade"
-Header set Expect-CT max-age=86400,enforce
-Header always edit Set-Cookie (.*) "$1;HttpOnly;Secure"
-Header set X-Content-Type-Options nosniff
-Header set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+	Header set Developed-By "Rafael De Jongh"
+	Header set Content-Security-Policy "img-src 'self' https: data: blob:; font-src 'self' https: data:; base-uri 'self';"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set X-XSS-Protection "1; mode=block"
+	Header set Referrer-Policy "no-referrer-when-downgrade"
+	Header set Expect-CT "max-age=86400,enforce"
+	Header set Feature-Policy "fullscreen *;camera 'none';microphone 'none'"
+	Header always edit Set-Cookie (.*) "$1;HttpOnly;Secure"
+	Header always unset "X-Powered-By"
+	Header set X-Content-Type-Options "nosniff"
+	Header set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+</IfModule>
+
+#Block access to hidden files and directories
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
+	RewriteCond %{SCRIPT_FILENAME} -d [OR]
+	RewriteCond %{SCRIPT_FILENAME} -f
+	RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+#Block access to files that can expose sensitive information.
+<IfModule mod_authz_core.c>
+	<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
+		Require all denied
+	</FilesMatch>
 </IfModule>
 
 #Force Generic WWW

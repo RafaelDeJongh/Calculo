@@ -146,9 +146,11 @@ ul.features li{width:50%}
 	border:0;
 	margin:0;
 	border-radius:6px;
-	-webkit-appearance:button;
-	   -moz-appearance:button;
 	cursor:pointer;
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:  none;
+	appearance:		  none;
 }
 .selectbox::before,.selectbox::after{
 	content:"";
@@ -430,7 +432,7 @@ h3.v-collapse-toggler{
 	box-shadow:0 1px 1px rgba(10,10,10,.1);
 	transition:all .3s ease
 }
-h3.v-collapse-toggler.active, h3.v-collapse-toggler:hover{
+h3.v-collapse-toggler.active,h3.v-collapse-toggler:hover{
 	background-color:$accent-color;
 	color:$text-color-inv;
 }
